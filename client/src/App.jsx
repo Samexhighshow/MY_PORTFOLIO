@@ -9,8 +9,9 @@ import CyberOverlay from './components/animations/CyberOverlay';
 import CyberCursor from './components/animations/CyberCursor';
 import PageTransition from './components/animations/PageTransition';
 import BootSequence from './components/animations/BootSequence';
-import SystemStatus from './components/layout/SystemStatus';
-import Terminal from './components/layout/Terminal';
+import SystemStatus from './components/os/SystemStatus';
+import TerminalOverlay from './components/os/TerminalOverlay';
+import CommandPalette from './components/os/CommandPalette';
 import useKonamiCode from './hooks/useKonamiCode';
 import Home from './pages/Home';
 import ProjectsShowcase from './pages/ProjectsShowcase';
@@ -74,7 +75,8 @@ function App() {
             </AnimatePresence>
             
             <CyberCursor />
-            <Terminal />
+            <TerminalOverlay />
+            <CommandPalette />
             <SystemStatus />
             <CyberOverlay />
             <Spotlight />

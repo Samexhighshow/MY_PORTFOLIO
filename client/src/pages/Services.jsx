@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import DecryptText from '../components/animations/DecryptText';
 import MagneticButton from '../components/animations/MagneticButton';
 import { useNavigate } from 'react-router-dom';
+import { useProfileData } from '../hooks/useProfileData';
 
 const servicesData = [
     {
@@ -33,6 +34,7 @@ const servicesData = [
 
 export default function Services() {
     const navigate = useNavigate();
+    const { profile, loading } = useProfileData();
 
     return (
         <main className="pt-32 pb-stack-xl max-w-container-max mx-auto px-margin-mobile md:px-stack-lg relative z-10">
@@ -76,6 +78,46 @@ export default function Services() {
                         </div>
                     </motion.div>
                 ))}
+            </section>
+
+            {/* Testimonials Section */}
+            <section className="mb-stack-2xl relative z-10">
+                <div className="text-center mb-stack-lg max-w-3xl mx-auto">
+                    <h2 className="font-display-lg text-headline-md text-white mb-4">Client Testimonials</h2>
+                    <p className="font-body-lg text-on-surface-variant">Feedback from collaborations and successful deployments.</p>
+                </div>
+                
+                {loading ? (
+                    <div className="flex justify-center p-8"><div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div></div>
+                ) : profile?.testimonials && profile.testimonials.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {profile.testimonials.map((testimonial, idx) => (
+                            <div key={idx} className="bg-white/5 border border-white/10 p-8 rounded-2xl relative">
+                                <span className="material-symbols-outlined absolute top-6 right-6 text-[40px] text-white/10">format_quote</span>
+                                <p className="font-body-md text-on-surface-variant mb-6 relative z-10">"{testimonial.quote}"</p>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center font-display-lg text-white">
+                                        {testimonial.author.charAt(0)}
+                                    </div>
+                                    <div>
+                                        <p className="font-label-caps text-label-caps text-white">{testimonial.author}</p>
+                                        <p className="font-mono-code text-[10px] text-secondary-fixed">{testimonial.position}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    /* Placeholder for future testimonials */
+                    <div className="bg-surface-container/30 border border-white/10 rounded-2xl p-12 text-center relative overflow-hidden">
+                        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:30px_30px]"></div>
+                        <span className="material-symbols-outlined text-[60px] text-white/10 mb-4 relative z-10">format_quote</span>
+                        <h3 className="font-label-caps text-label-caps text-secondary-fixed mb-2 tracking-widest relative z-10">SYSTEM STANDBY</h3>
+                        <p className="font-mono-code text-[12px] text-on-surface-variant max-w-lg mx-auto relative z-10 uppercase">
+                            Testimonial modules are initialized and awaiting data. Reviews from future clients, colleagues, and organizations will be routed here upon project completion.
+                        </p>
+                    </div>
+                )}
             </section>
 
             {/* CTA */}

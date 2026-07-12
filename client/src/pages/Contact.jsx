@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { sendContactMessage } from '../services/api';
 import MagneticButton from '../components/animations/MagneticButton';
+import { useProfileData } from '../hooks/useProfileData';
 
 export default function Contact() {
+    const { profile, loading, error } = useProfileData();
     const [formData, setFormData] = useState({ name: '', email: '', type: 'Security Audit', message: '' });
     const [status, setStatus] = useState('idle');
     const [copied, setCopied] = useState(false);
@@ -55,15 +57,33 @@ export default function Contact() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         {/* Availability Status */}
-                        <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-6 rounded-xl flex items-center gap-4 w-full md:w-auto hover:bg-white/10 transition-colors">
-                            <div className="relative flex h-3 w-3">
-                                <span className="animate-[pulse_2s_infinite] absolute inline-flex h-full w-full rounded-full bg-secondary-fixed opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary-fixed"></span>
+                        <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-6 rounded-xl flex flex-col gap-4 w-full md:w-auto hover:bg-white/10 transition-colors">
+                            <div className="flex items-center gap-4 border-b border-white/10 pb-4">
+                                <div className="relative flex h-3 w-3">
+                                    <span className="animate-[pulse_2s_infinite] absolute inline-flex h-full w-full rounded-full bg-secondary-fixed opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary-fixed"></span>
+                                </div>
+                                <div>
+                                    <p className="font-label-caps text-label-caps text-secondary-fixed mb-1 uppercase tracking-widest">Live Status</p>
+                                    <p className="font-body-sm text-body-sm text-on-surface">
+                                        {loading ? "Checking availability..." : error ? "Status unavailable" : profile?.professional_availability?.status}
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <p className="font-label-caps text-label-caps text-secondary-fixed mb-1 uppercase tracking-widest">Live Status</p>
-                                <p className="font-body-sm text-body-sm text-on-surface">Available for projects Q1 2025</p>
-                            </div>
+                            
+                            {!loading && !error && profile?.professional_availability?.services && (
+                                <div>
+                                    <p className="font-label-caps text-label-caps text-on-surface-variant mb-2">AVAILABLE FOR:</p>
+                                    <ul className="space-y-2">
+                                        {profile.professional_availability.services.map((service, idx) => (
+                                            <li key={idx} className="flex items-center gap-2 text-on-surface text-body-sm">
+                                                <span className="material-symbols-outlined text-[14px] text-primary">done</span>
+                                                {service}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                         </div>
                     </motion.div>
                 </div>
