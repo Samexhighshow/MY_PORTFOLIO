@@ -31,7 +31,7 @@ export default function Footer() {
                     </ul>
                 </div>
             </div>
-            <div className="max-w-container-max mx-auto py-8 border-t border-outline-variant/10 flex justify-between items-center">
+            <div className="max-w-container-max mx-auto pt-8 pb-8 md:pb-24 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
                 <div className="font-body-sm text-body-sm text-on-surface-variant">© {new Date().getFullYear()} MAXIMUS. Securely Encrypted.</div>
                 <div className="flex gap-6">
                     <span className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">hub</span>
