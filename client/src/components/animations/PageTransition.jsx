@@ -4,25 +4,30 @@ import { motion } from 'framer-motion';
 const pageVariants = {
     initial: {
         opacity: 0,
-        y: 20,
-        filter: 'blur(10px)'
+        y: 40,
+        scale: 0.98,
+        filter: 'blur(15px)'
     },
     in: {
         opacity: 1,
         y: 0,
-        filter: 'blur(0px)'
+        scale: 1,
+        filter: 'blur(0px)',
+        transition: {
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1] // Premium Apple-like cubic bezier
+        }
     },
     out: {
         opacity: 0,
-        y: -20,
-        filter: 'blur(10px)'
+        y: -40,
+        scale: 1.02,
+        filter: 'blur(15px)',
+        transition: {
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1]
+        }
     }
-};
-
-const pageTransition = {
-    type: 'tween',
-    ease: 'easeInOut',
-    duration: 0.4
 };
 
 export default function PageTransition({ children }) {
@@ -32,8 +37,7 @@ export default function PageTransition({ children }) {
             animate="in"
             exit="out"
             variants={pageVariants}
-            transition={pageTransition}
-            className="w-full h-full"
+            className="w-full h-full origin-top"
         >
             {children}
         </motion.div>

@@ -22,10 +22,17 @@ export default function Hero() {
             
             <div className="relative z-20 w-full max-w-container-max mx-auto px-margin-mobile md:px-stack-lg grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
                 <motion.div style={{ y: textY }} className="space-y-8">
-                    <div className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full">
-                        <span className="font-label-caps text-label-caps text-secondary-fixed text-sm">
+                    <div className="inline-block px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full mb-4">
+                        <span className="font-label-caps text-label-caps text-secondary-fixed text-sm md:text-base tracking-widest">
                             <Typewriter 
-                                roles={['Cybersecurity Professional', 'Software Engineer', 'ICT Manager']} 
+                                roles={[
+                                    'Cyber Security Student', 
+                                    'Full Stack Web Developer', 
+                                    'ICT Manager',
+                                    'EdTech Consultant',
+                                    'Technical Writer',
+                                    'Digital Solutions Builder'
+                                ]} 
                             />
                         </span>
                     </div>

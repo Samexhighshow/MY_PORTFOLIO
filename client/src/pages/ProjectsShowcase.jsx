@@ -1,8 +1,9 @@
 import React, { useRef, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import DecryptText from '../components/animations/DecryptText';
+import ProjectModal from '../components/animations/ProjectModal';
 
-function ProjectCard3D({ project }) {
+function ProjectCard3D({ project, onSelectProject }) {
     const cardRef = useRef(null);
 
     const handleMouseMove = (e) => {
@@ -63,12 +64,12 @@ function ProjectCard3D({ project }) {
                     ))}
                 </div>
                 <div className="mt-auto flex items-center justify-between">
-                    <button onClick={() => window.open(project.url, '_blank')} className="bg-gradient-to-r from-secondary-container to-tertiary-container text-surface px-8 py-3 rounded-xl font-label-caps text-label-caps hover:scale-105 transition-transform">
+                    <button onClick={() => onSelectProject(project)} className="bg-gradient-to-r from-secondary-container to-tertiary-container text-surface px-8 py-3 rounded-xl font-label-caps text-label-caps hover:scale-105 transition-transform">
                         View Case Study
                     </button>
                     <div className="flex gap-4">
-                        <a className="text-on-surface-variant hover:text-primary transition-colors" href={project.url} target="_blank" rel="noreferrer"><span className="material-symbols-outlined">open_in_new</span></a>
-                        <a className="text-on-surface-variant hover:text-primary transition-colors" href={project.url} target="_blank" rel="noreferrer"><span className="material-symbols-outlined">code</span></a>
+                        {project.url && project.url !== '#' && <a className="text-on-surface-variant hover:text-primary transition-colors" href={project.url} target="_blank" rel="noreferrer"><span className="material-symbols-outlined">open_in_new</span></a>}
+                        {project.github && project.github !== '#' && <a className="text-on-surface-variant hover:text-primary transition-colors" href={project.github} target="_blank" rel="noreferrer"><span className="material-symbols-outlined">code</span></a>}
                     </div>
                 </div>
             </div>
@@ -79,61 +80,84 @@ function ProjectCard3D({ project }) {
 const projectsData = [
     {
         id: 1,
-        title: "Project Aegis: Zero-Trust Ecosystem",
-        category: "Cybersecurity",
-        problem: "Vulnerable legacy perimeter security in distributed enterprise environments.",
-        solution: "A decentralized identity-first architecture with real-time micro-segmentation.",
-        tech: ["Rust", "Kubernetes", "gRPC"],
+        title: "Enterprise Student Management System",
+        category: "EdTech & Full Stack",
+        overview: "A comprehensive digital infrastructure designed to manage student records, automate grading, track attendance, and facilitate communication between administrators, teachers, and students.",
+        problem: "Traditional schools rely on fragmented manual systems for grading, attendance, and record-keeping, leading to data loss, inefficiencies, and poor communication.",
+        solution: "Engineered a centralized, role-based cloud platform with secure authentication, automated report generation, and real-time dashboard analytics.",
+        features: ["Role-based Access Control (Admin, Teacher, Student)", "Automated Grading & Report Generation", "Real-time Attendance Tracking", "Secure Parent Portal", "RESTful API Integration"],
+        tech: ["React.js", "PHP", "MySQL", "TailwindCSS", "JWT Auth"],
+        challenges: "Designing a database schema that efficiently handles thousands of concurrent student records without slowing down complex grading queries.",
+        lessons: "Learned advanced MySQL indexing techniques and how to structure deeply nested relational data for rapid API retrieval.",
+        results: "Successfully digitized administrative workflows, providing real-time visibility into student performance and streamlining data entry.",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6bTUs9WZqtlY69vT4M-_9M5X-d4BixaTEyhtlqXJB17sylLVfdrW6Cr3iTTlfDnEbkZl0et3Wbqiq9cMVDRkyCyjG7DewWyfck6LcFRGjld_TWY40VXMmnwT1YnhSRgBh5fHbaISuUfZfnkxN5VGQl91bULWamDCUOx0Pgfa9jCSXWD94fvYnsVzNOJx4jdE6wtGf73u674xlB3bylzYA6cmVpShDyDZqZ_wgei6gl-fjT5xm4qM5Im9EvHFUyguO0LoeccAQ5rKb",
-        url: "https://github.com"
+        url: "#",
+        github: "#"
     },
     {
         id: 2,
-        title: "Helix Engine: Event-Driven Core",
-        category: "Software Engineering",
-        problem: "High-latency data processing pipelines causing bottlenecks in financial tech stacks.",
-        solution: "Ultra-low latency Go-based engine utilizing lock-free data structures.",
-        tech: ["Go", "Redis", "AWS"],
+        title: "Brilliant Pathways International Schools",
+        category: "Web Development",
+        overview: "A modern, highly-responsive official web presence built for an international educational institution to showcase their facilities, curriculum, and admissions process.",
+        problem: "The school lacked a digital footprint, making it difficult for prospective parents to find reliable information or apply online.",
+        solution: "Designed and developed a premium, fast-loading website with an integrated CMS for the school administration to update news and events.",
+        features: ["Dynamic Content Management", "Online Admissions Portal", "Interactive Campus Tour", "SEO Optimized Architecture", "Mobile-First Design"],
+        tech: ["React.js", "Framer Motion", "PHP", "TailwindCSS"],
+        challenges: "Ensuring the website loaded instantly across varying network speeds, typical for prospective parents browsing on mobile devices.",
+        lessons: "Mastered advanced asset optimization, lazy loading techniques, and efficient caching strategies.",
+        results: "Established a dominant digital presence leading to significantly increased online enrollment inquiries.",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKoYCtkSEAKbPGHzx3XOgPT6O4CmfhTaDdpqYK6DMl1ovc5ESSkVHP__buxEAMJcN_vt6vayQFn4vVIaj_P5T0MrO254DMOEbJEQQLW9tvfP6lQKuoPUHuQctsMGtLkCcjjNtJAv3boI0IkQnzPNAYqxDYJ2KuRMQHYKl1xcdlNLkqHBvFgSdLnbT3pIQ7kQkRpzkvyqwiCCepWZiAysTLbhol_2KTIzsTt1PAPB4lXcpjd4Um_55Nf3FadCAENlZHu126iMEeRKc_",
-        url: "https://github.com"
+        url: "#",
+        github: "#"
     },
     {
         id: 3,
-        title: "Sentinel: Threat Intelligence Platform",
-        category: "Research",
-        problem: "Overwhelming noise in security logs hiding sophisticated state-sponsored attacks.",
-        solution: "ML-powered anomaly detection model filtering 99.9% of telemetry noise.",
-        tech: ["Python", "PyTorch", "Docker"],
+        title: "NewsPort Digital",
+        category: "Web Development",
+        overview: "A scalable digital journalism platform designed to handle high-traffic news delivery with categorizations, live updates, and secure author dashboards.",
+        problem: "Existing off-the-shelf CMS solutions were too bloated and slow for delivering breaking news efficiently.",
+        solution: "Built a custom, lightweight publishing engine with a focus on core web vitals and rapid content delivery.",
+        features: ["Custom Author Dashboard", "Category Management", "Live Search", "Rich Text Editor Integration", "Analytics Tracking"],
+        tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
+        challenges: "Sanitizing user input from the rich text editor to prevent XSS attacks while maintaining complex HTML formatting.",
+        lessons: "Deepened understanding of web security, input sanitization, and parameterized database queries.",
+        results: "Delivered a platform capable of handling concurrent readers with zero database bottlenecks.",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAL3na5cFWxQ2_dC1cY2GQt7zl211peYslmvY7J52rwm2swhHb6H4yiWzVeN55SXqatF1eh0mQK2rakR68voQS4_DcQG1T4A2Qd3Yhw-czhnoqk6iVvcVBVoARWGHx5-Cq3I7l3N8mt_JBwzAxNZnQJkzA6dwHb6oQy0tGAlCNdlHI2XjG8yQaERMyXLCbNT1vZcZmYH8g4aY9ynVD984AlKgW5nQgdJhEJT_Y7q9sQ_hhmXCqZAwt4ROtreaMBMDQcJEXUuLN5SOEN",
-        url: "https://github.com"
+        url: "#",
+        github: "#"
     },
     {
         id: 4,
-        title: "Atlas: Infrastructure Orchestrator",
-        category: "ICT Management",
-        problem: "Fractured IT asset management across multi-cloud and on-premise hardware.",
-        solution: "Single-pane-of-glass dashboard for global infrastructure visibility.",
-        tech: ["React", "Terraform", "PostgreSQL"],
+        title: "MAXIMUS OS: Interactive Portfolio",
+        category: "Software Engineering",
+        overview: "A highly immersive, interactive portfolio designed to mimic a futuristic operating system, combining cutting-edge frontend engineering with cyberpunk aesthetics.",
+        problem: "Traditional portfolios fail to demonstrate true engineering capability, feeling like static brochures rather than dynamic software.",
+        solution: "Architected a 'living' web application with custom cursor interactions, simulated terminal sequences, dynamic soundscapes, and integrated state management.",
+        features: ["Simulated Boot Sequence", "HTML5 Canvas Node Network", "Web Audio API Sound Engine", "Konami Code Easter Egg", "Smooth Page Transitions"],
+        tech: ["React.js", "Framer Motion", "Lenis Scroll", "TailwindCSS"],
+        challenges: "Managing complex global state and ensuring that heavy canvas animations did not cause frame drops on low-end devices.",
+        lessons: "Refined skills in React performance optimization, `requestAnimationFrame`, and memoization techniques.",
+        results: "Created a unique digital footprint that instantly communicates technical proficiency and design aesthetics to visitors.",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDUGn3CrtpUzBq8gicITi5co4LLO_1JHsFYzO7aw4cIrlr7I-vQmrI4wXsqqooiLlYA2XOsstVQmf7S5OEFARx_BQhCu3KyvaW_F_m96OdtJJa1_-NUkXQhbkqAeGV79bfvk45Sp6k9689s3Lj4d-77cAj6vlebUGGHsi4xx_B5GklcEzeXkdnfWrpUNctELaSyqavQlP4kE4bAb5j2F5SncEH-qm6ZGYSJYatK2ow4TGsXRR0_KVi388f5INx2rZxEfDz0ET3pgsyG",
-        url: "https://github.com"
+        url: "#",
+        github: "#"
     }
 ];
 
 export default function ProjectsShowcase() {
     const [activeFilter, setActiveFilter] = useState('All');
+    const [selectedProject, setSelectedProject] = useState(null);
     
     const filteredProjects = useMemo(() => {
         if (activeFilter === 'All') return projectsData;
-        return projectsData.filter(p => p.category === activeFilter);
+        return projectsData.filter(p => p.category === activeFilter || p.category.includes(activeFilter));
     }, [activeFilter]);
 
     const filters = [
         { name: "All", icon: "widgets" },
-        { name: "Cybersecurity", icon: "shield" },
-        { name: "Software Engineering", icon: "terminal" },
-        { name: "ICT Management", icon: "lan" },
-        { name: "Research", icon: "science" },
-        { name: "Open Source", icon: "code_blocks" }
+        { name: "Web Development", icon: "language" },
+        { name: "EdTech & Full Stack", icon: "school" },
+        { name: "Software Engineering", icon: "terminal" }
     ];
 
     return (
@@ -199,18 +223,23 @@ export default function ProjectsShowcase() {
 
                 {/* Project Grid */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-                    {filteredProjects.map((project, i) => (
-                        <motion.div
-                            key={project.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.1 * i }}
-                        >
-                            <ProjectCard3D project={project} />
-                        </motion.div>
-                    ))}
+                        {filteredProjects.map((project, idx) => (
+                            <motion.div 
+                                key={project.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                                className="h-full"
+                            >
+                                <ProjectCard3D project={project} onSelectProject={setSelectedProject} />
+                            </motion.div>
+                        ))}
                 </section>
             </main>
+            
+            {/* Project Modal */}
+            <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
         </div>
     );
 }

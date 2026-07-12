@@ -29,13 +29,19 @@ export default function Navbar() {
                         Home
                     </NavLink>
                     <NavLink to="/experience" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
-                        Engineering
+                        About
                     </NavLink>
-                    <NavLink to="/certifications" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
+                    <NavLink to="/services" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
+                        Services
+                    </NavLink>
+                    <NavLink to="/cybersecurity" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
                         Cybersecurity
                     </NavLink>
                     <NavLink to="/projects" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
                         Projects
+                    </NavLink>
+                    <NavLink to="/blog" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
+                        Blog
                     </NavLink>
                 </div>
                 <div className="flex items-center space-x-4 md:space-x-6">
@@ -81,13 +87,19 @@ export default function Navbar() {
                             Home
                         </NavLink>
                         <NavLink to="/experience" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
-                            Engineering
+                            About
                         </NavLink>
-                        <NavLink to="/certifications" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
+                        <NavLink to="/services" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
+                            Services
+                        </NavLink>
+                        <NavLink to="/cybersecurity" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
                             Cybersecurity
                         </NavLink>
                         <NavLink to="/projects" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
                             Projects
+                        </NavLink>
+                        <NavLink to="/blog" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
+                            Blog
                         </NavLink>
                         <div className="w-12 h-[1px] bg-outline-variant/30 my-2"></div>
                         <Link to="/contact" className="font-label-caps text-label-caps bg-primary text-on-primary px-8 py-3 rounded-full hover:scale-95 transition-transform w-3/4 text-center">

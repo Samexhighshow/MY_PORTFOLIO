@@ -15,7 +15,9 @@ import useKonamiCode from './hooks/useKonamiCode';
 import Home from './pages/Home';
 import ProjectsShowcase from './pages/ProjectsShowcase';
 import Experience from './pages/Experience';
-import Certifications from './pages/Certifications';
+import Services from './pages/Services';
+import Cybersecurity from './pages/Cybersecurity';
+import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
@@ -26,6 +28,7 @@ function App() {
     const [isBooting, setIsBooting] = useState(() => {
         return !sessionStorage.getItem('hasBooted');
     });
+    const [lenisRef, setLenisRef] = useState(null);
 
     const handleBootComplete = () => {
         sessionStorage.setItem('hasBooted', 'true');
@@ -34,8 +37,11 @@ function App() {
 
     // Scroll to top on route change
     useEffect(() => {
+        if (lenisRef) {
+            lenisRef.scrollTo(0, { immediate: true });
+        }
         window.scrollTo(0, 0);
-    }, [location.pathname]);
+    }, [location.pathname, lenisRef]);
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -54,6 +60,7 @@ function App() {
         }
 
         requestAnimationFrame(raf);
+        setLenisRef(lenis);
 
         return () => {
             lenis.destroy();
@@ -78,7 +85,9 @@ function App() {
                         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
                         <Route path="/projects" element={<PageTransition><ProjectsShowcase /></PageTransition>} />
                         <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
-                        <Route path="/certifications" element={<PageTransition><Certifications /></PageTransition>} />
+                        <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+                        <Route path="/cybersecurity" element={<PageTransition><Cybersecurity /></PageTransition>} />
+                        <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
                         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
                         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
                     </Routes>

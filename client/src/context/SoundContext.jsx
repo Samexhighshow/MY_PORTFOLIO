@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, useRef } from 'react';
+import React, { createContext, useContext, useState, useCallback, useRef, useEffect } from 'react';
 
 const SoundContext = createContext();
 
@@ -63,6 +63,33 @@ export function SoundProvider({ children }) {
         osc.start();
         osc.stop(ctx.currentTime + 0.15);
     }, [isMuted]);
+
+    // Global Event Listeners for all interactive elements
+    useEffect(() => {
+        const handleMouseOver = (e) => {
+            if (isMuted || !audioCtxRef.current) return;
+            const target = e.target.closest('a, button, [role="button"], .interactive, input[type="submit"]');
+            if (target && !target.contains(e.relatedTarget)) {
+                playHover();
+            }
+        };
+
+        const handleMouseDown = (e) => {
+            if (isMuted || !audioCtxRef.current) return;
+            const target = e.target.closest('a, button, [role="button"], .interactive, input[type="submit"]');
+            if (target) {
+                playClick();
+            }
+        };
+
+        document.addEventListener('mouseover', handleMouseOver);
+        document.addEventListener('mousedown', handleMouseDown);
+
+        return () => {
+            document.removeEventListener('mouseover', handleMouseOver);
+            document.removeEventListener('mousedown', handleMouseDown);
+        };
+    }, [isMuted, playHover, playClick]);
 
     return (
         <SoundContext.Provider value={{ isMuted, toggleMute, playHover, playClick }}>
