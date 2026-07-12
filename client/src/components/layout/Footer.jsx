@@ -2,11 +2,11 @@ import React from 'react';
 
 export default function Footer() {
     return (
-        <footer className="bg-surface-dim border-t border-outline-variant/20 relative z-10 px-margin-mobile md:px-stack-lg">
+        <footer className="bg-transparent backdrop-blur-lg border-t border-white/10 relative z-10 px-margin-mobile md:px-stack-lg">
             <div className="max-w-container-max mx-auto py-stack-xl grid grid-cols-1 md:grid-cols-4 gap-gutter">
                 <div className="md:col-span-2 space-y-6">
                     <div className="font-headline-md text-[32px] font-extrabold tracking-[0.15em] relative inline-block">
-                        <span className="bg-gradient-to-r from-secondary-container via-primary-fixed-dim to-tertiary-fixed-dim text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,251,251,0.5)] uppercase">
+                        <span className="bg-gradient-to-r from-secondary-container via-primary-fixed-dim to-tertiary-fixed-dim text-transparent bg-clip-text drop-shadow-[0_0_8px_var(--cyan-glow)] uppercase cyber-glitch" data-text="MAXIMUS">
                             MAXIMUS
                         </span>
                     </div>
