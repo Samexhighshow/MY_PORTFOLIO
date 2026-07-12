@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import MagneticButton from '../components/animations/MagneticButton';
 import DecryptText from '../components/animations/DecryptText';
-import ParticleNetwork from '../components/animations/ParticleNetwork';
 import { useNavigate } from 'react-router-dom';
 
 const timelineData = [
@@ -86,8 +85,9 @@ export default function Experience() {
     
     return (
         <main ref={containerRef} className="relative pt-[120px] overflow-hidden">
-            <div className="absolute inset-0 z-0">
-                <ParticleNetwork />
+            <div className="absolute inset-0 -z-10 pointer-events-none">
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px]"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary-container/10 blur-[120px]"></div>
             </div>
 
             {/* Header Section */}
