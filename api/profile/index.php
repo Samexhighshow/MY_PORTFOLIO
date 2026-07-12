@@ -15,7 +15,7 @@ $profileData = [
         "name" => "MAXIMUS",
         "title" => "Cyber Security Student & Full Stack Engineer",
         "tagline" => "Building secure, scalable, and meaningful digital solutions while continuously growing into a technology leader.",
-        "biography" => "I am a multidisciplinary technology professional deeply passionate about the intersection of software engineering, educational technology, and cybersecurity. My journey didn't start in a computer science class—it started with a genuine curiosity for how digital systems operate, leading me from design to development, and now to securing critical infrastructure."
+        "biography" => "I am Ishola Samuel (known digitally as MAXIMUS) — a multidisciplinary technology professional deeply passionate about the intersection of software engineering, educational technology, and cybersecurity. My journey didn't start in a computer science class—it started with a genuine curiosity for how digital systems operate, leading me from design to development, and now to securing critical infrastructure."
     ],
     "education" => [
         "institution" => "Ladoke Akintola University of Technology (LAUTECH)",

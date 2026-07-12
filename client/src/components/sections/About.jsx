@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
+import { useProfileData } from '../../hooks/useProfileData';
 
 export default function About() {
     const controls = useAnimation();
     const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+    const { profile, loading } = useProfileData();
+    const [isColored, setIsColored] = useState(false);
 
     useEffect(() => {
         if (inView) {
@@ -27,13 +30,13 @@ export default function About() {
                         animate={controls}
                         variants={variants}
                     >
-                        <div className="relative group">
+                        <div className="relative group cursor-pointer" onClick={() => setIsColored(!isColored)}>
                             <div className="absolute -inset-2 bg-gradient-to-r from-primary to-secondary-container blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
                             <div className="aspect-[4/5] glass-card rounded-xl overflow-hidden relative border-white/10">
                                 <img 
-                                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100" 
-                                    alt="Tech Architect Portrait"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0pZrcys4-GPDSZOnaMUPwK9aBeryolVhMeEKbX0llRLetoM3UliYhbaWYGt34kVUDKFFLKw40Mc5hS41WfnxQbh4XGtcvXWrFsM3XLtU_KMeIEli99uM_o6ZgyFj4_z3jAcqqr0YzxZd-EddmnpRirkP7yZr1EZxSQazJGz18o0u45s6ysRzwAGti0lkX1YuYIxGyMW2OlfeRso1PsNtSjsddoc2YN8BIp9SFSzY3aUvRwRqcDdmY2dbUhbdBgUYAkXXT3tFnTAxK"
+                                    className={`w-full h-full object-cover transition-all duration-700 ${isColored ? 'grayscale-0 scale-100' : 'grayscale hover:grayscale-0 scale-105 hover:scale-100'}`} 
+                                    alt="Ishola Samuel Portrait"
+                                    src="/profile.jpg"
                                 />
                             </div>
                         </div>
@@ -45,23 +48,25 @@ export default function About() {
                         animate={controls}
                         variants={variants}
                     >
-                        <h2 className="font-headline-md text-headline-md text-primary">Strategic Architect of Digital Trust</h2>
+                        <h2 className="font-headline-md text-headline-md text-primary">
+                            {loading ? 'Loading...' : profile?.personal?.title || 'Cyber Security Student & Full Stack Engineer'}
+                        </h2>
                         <p className="font-body-lg text-body-lg text-on-surface-variant">
-                            With a decade of experience navigating the complex intersection of security and scalability, I help organizations build systems that aren't just powerful, but impenetrable. My philosophy centers on "Secure by Design"—ensuring that every line of code and every strategic decision reinforces the enterprise's digital core.
+                            {loading ? 'Initializing profile...' : profile?.personal?.biography || 'Profile unavailable.'}
                         </p>
                         
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-gutter pt-8">
                             <div className="glass-card p-6 rounded-xl border-white/10 text-center">
-                                <div className="font-display-lg text-headline-md text-secondary-fixed mb-2">10+</div>
-                                <div className="font-label-caps text-label-caps text-on-surface-variant">Years Experience</div>
+                                <div className="font-display-lg text-headline-md text-secondary-fixed mb-2">5+</div>
+                                <div className="font-label-caps text-label-caps text-on-surface-variant">Years Dev Experience</div>
                             </div>
                             <div className="glass-card p-6 rounded-xl border-white/10 text-center">
-                                <div className="font-display-lg text-headline-md text-secondary-fixed mb-2">50+</div>
-                                <div className="font-label-caps text-label-caps text-on-surface-variant">Projects Delivered</div>
+                                <div className="font-display-lg text-headline-md text-secondary-fixed mb-2">Active</div>
+                                <div className="font-label-caps text-label-caps text-on-surface-variant">Security Researcher</div>
                             </div>
                             <div className="glass-card p-6 rounded-xl border-white/10 text-center">
-                                <div className="font-display-lg text-headline-md text-secondary-fixed mb-2">15+</div>
-                                <div className="font-label-caps text-label-caps text-on-surface-variant">Certifications</div>
+                                <div className="font-display-lg text-headline-md text-secondary-fixed mb-2">Full</div>
+                                <div className="font-label-caps text-label-caps text-on-surface-variant">Stack Architect</div>
                             </div>
                         </div>
                     </motion.div>
