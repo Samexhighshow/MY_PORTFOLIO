@@ -1,10 +1,20 @@
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export default function Projects() {
     const controls = useAnimation();
+    const navigate = useNavigate();
     const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+
+    // Parallax setup for cards
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
+    const card1Y = useTransform(scrollYProgress, [0, 1], [50, -100]);
+    const card2Y = useTransform(scrollYProgress, [0, 1], [150, -200]);
 
     useEffect(() => {
         if (inView) {
@@ -39,7 +49,7 @@ export default function Projects() {
                         <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase">Work</span>
                         <h2 className="font-headline-md text-headline-md mt-4">Selected Case Studies</h2>
                     </div>
-                    <button className="font-label-caps text-label-caps border-b border-primary text-primary pb-1 hover:text-secondary-container hover:border-secondary-container transition-all">View Full Archive</button>
+                    <button onClick={() => navigate('/projects')} className="font-label-caps text-label-caps border-b border-primary text-primary pb-1 hover:text-secondary-container hover:border-secondary-container transition-all">View Full Archive</button>
                 </motion.div>
                 
                 <motion.div 
@@ -49,8 +59,8 @@ export default function Projects() {
                     variants={containerVariants}
                 >
                     {/* Project 1 */}
-                    <motion.div variants={itemVariants} className="group cursor-pointer">
-                        <div className="relative aspect-video rounded-xl overflow-hidden glass-card border-white/10 mb-6">
+                    <motion.div style={{ y: card1Y }} variants={itemVariants} className="group cursor-pointer">
+                        <div className="relative aspect-video rounded-xl overflow-hidden glass-card tech-border border-white/10 mb-6">
                             <div 
                                 className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" 
                                 style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcgpVy_AbUhruW5UPnSxlChrW7Ulzyk8zU_fM6vtCPusJptjIZBBvMRBA8RWcO6yXciShAkIcSlTTCKUoYaeArNoiqjPDsZqpnZJ9iX4nGequuZNsQFPObaULCPrsNQ35rHOFM8wwU3q5WboivljlnFSUZ11syqv6mvsk_2ztxodFJr6LOZBKBtBXt2lZIW4fyjNbwA0McfX4xIHpmH5USXLHUlgqD0yPnwuuCHbqKM9BNxAETGHJTjJC_XGWUXD0b7m9PT5vqGe-R')" }}
@@ -69,8 +79,8 @@ export default function Projects() {
                     </motion.div>
                     
                     {/* Project 2 */}
-                    <motion.div variants={itemVariants} className="group cursor-pointer">
-                        <div className="relative aspect-video rounded-xl overflow-hidden glass-card border-white/10 mb-6">
+                    <motion.div style={{ y: card2Y }} variants={itemVariants} className="group cursor-pointer">
+                        <div className="relative aspect-video rounded-xl overflow-hidden glass-card tech-border border-white/10 mb-6">
                             <div 
                                 className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" 
                                 style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3SujdWKSk6fqJkzklbgqKsOsnPyr13u9cG4CZFyovdTcam6hJabGQqc6rDynhWLg58jvN1BM2SmIAmvNGk-la0z9fp9sTkX4vdhjoUvrtVUMs6DIsQETSpPCjmOItXSmIqjUiwX4Rb6tIZaYqBWCcc_BYtdbzgl9L8ibQL3KetKF0Yo2BJoPGJme9K_MfEimkfIvZ3laTCgxnIGsBLn1XZ4KxYEdbx8o3Wi_bCJ_7E8XcYyd0OpTvXtoKVKAIjbeOo9Ms4ZVLjawe')" }}

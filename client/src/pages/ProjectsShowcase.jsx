@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 function ProjectCard3D({ project }) {
@@ -62,12 +62,12 @@ function ProjectCard3D({ project }) {
                     ))}
                 </div>
                 <div className="mt-auto flex items-center justify-between">
-                    <button className="bg-gradient-to-r from-secondary-container to-tertiary-container text-surface px-8 py-3 rounded-xl font-label-caps text-label-caps hover:scale-105 transition-transform">
+                    <button onClick={() => window.open(project.url, '_blank')} className="bg-gradient-to-r from-secondary-container to-tertiary-container text-surface px-8 py-3 rounded-xl font-label-caps text-label-caps hover:scale-105 transition-transform">
                         View Case Study
                     </button>
                     <div className="flex gap-4">
-                        <a className="text-on-surface-variant hover:text-primary transition-colors" href="#"><span className="material-symbols-outlined">open_in_new</span></a>
-                        <a className="text-on-surface-variant hover:text-primary transition-colors" href="#"><span className="material-symbols-outlined">code</span></a>
+                        <a className="text-on-surface-variant hover:text-primary transition-colors" href={project.url} target="_blank" rel="noreferrer"><span className="material-symbols-outlined">open_in_new</span></a>
+                        <a className="text-on-surface-variant hover:text-primary transition-colors" href={project.url} target="_blank" rel="noreferrer"><span className="material-symbols-outlined">code</span></a>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,8 @@ const projectsData = [
         problem: "Vulnerable legacy perimeter security in distributed enterprise environments.",
         solution: "A decentralized identity-first architecture with real-time micro-segmentation.",
         tech: ["Rust", "Kubernetes", "gRPC"],
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6bTUs9WZqtlY69vT4M-_9M5X-d4BixaTEyhtlqXJB17sylLVfdrW6Cr3iTTlfDnEbkZl0et3Wbqiq9cMVDRkyCyjG7DewWyfck6LcFRGjld_TWY40VXMmnwT1YnhSRgBh5fHbaISuUfZfnkxN5VGQl91bULWamDCUOx0Pgfa9jCSXWD94fvYnsVzNOJx4jdE6wtGf73u674xlB3bylzYA6cmVpShDyDZqZ_wgei6gl-fjT5xm4qM5Im9EvHFUyguO0LoeccAQ5rKb"
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6bTUs9WZqtlY69vT4M-_9M5X-d4BixaTEyhtlqXJB17sylLVfdrW6Cr3iTTlfDnEbkZl0et3Wbqiq9cMVDRkyCyjG7DewWyfck6LcFRGjld_TWY40VXMmnwT1YnhSRgBh5fHbaISuUfZfnkxN5VGQl91bULWamDCUOx0Pgfa9jCSXWD94fvYnsVzNOJx4jdE6wtGf73u674xlB3bylzYA6cmVpShDyDZqZ_wgei6gl-fjT5xm4qM5Im9EvHFUyguO0LoeccAQ5rKb",
+        url: "https://github.com"
     },
     {
         id: 2,
@@ -92,7 +93,8 @@ const projectsData = [
         problem: "High-latency data processing pipelines causing bottlenecks in financial tech stacks.",
         solution: "Ultra-low latency Go-based engine utilizing lock-free data structures.",
         tech: ["Go", "Redis", "AWS"],
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKoYCtkSEAKbPGHzx3XOgPT6O4CmfhTaDdpqYK6DMl1ovc5ESSkVHP__buxEAMJcN_vt6vayQFn4vVIaj_P5T0MrO254DMOEbJEQQLW9tvfP6lQKuoPUHuQctsMGtLkCcjjNtJAv3boI0IkQnzPNAYqxDYJ2KuRMQHYKl1xcdlNLkqHBvFgSdLnbT3pIQ7kQkRpzkvyqwiCCepWZiAysTLbhol_2KTIzsTt1PAPB4lXcpjd4Um_55Nf3FadCAENlZHu126iMEeRKc_"
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKoYCtkSEAKbPGHzx3XOgPT6O4CmfhTaDdpqYK6DMl1ovc5ESSkVHP__buxEAMJcN_vt6vayQFn4vVIaj_P5T0MrO254DMOEbJEQQLW9tvfP6lQKuoPUHuQctsMGtLkCcjjNtJAv3boI0IkQnzPNAYqxDYJ2KuRMQHYKl1xcdlNLkqHBvFgSdLnbT3pIQ7kQkRpzkvyqwiCCepWZiAysTLbhol_2KTIzsTt1PAPB4lXcpjd4Um_55Nf3FadCAENlZHu126iMEeRKc_",
+        url: "https://github.com"
     },
     {
         id: 3,
@@ -101,7 +103,8 @@ const projectsData = [
         problem: "Overwhelming noise in security logs hiding sophisticated state-sponsored attacks.",
         solution: "ML-powered anomaly detection model filtering 99.9% of telemetry noise.",
         tech: ["Python", "PyTorch", "Docker"],
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAL3na5cFWxQ2_dC1cY2GQt7zl211peYslmvY7J52rwm2swhHb6H4yiWzVeN55SXqatF1eh0mQK2rakR68voQS4_DcQG1T4A2Qd3Yhw-czhnoqk6iVvcVBVoARWGHx5-Cq3I7l3N8mt_JBwzAxNZnQJkzA6dwHb6oQy0tGAlCNdlHI2XjG8yQaERMyXLCbNT1vZcZmYH8g4aY9ynVD984AlKgW5nQgdJhEJT_Y7q9sQ_hhmXCqZAwt4ROtreaMBMDQcJEXUuLN5SOEN"
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAL3na5cFWxQ2_dC1cY2GQt7zl211peYslmvY7J52rwm2swhHb6H4yiWzVeN55SXqatF1eh0mQK2rakR68voQS4_DcQG1T4A2Qd3Yhw-czhnoqk6iVvcVBVoARWGHx5-Cq3I7l3N8mt_JBwzAxNZnQJkzA6dwHb6oQy0tGAlCNdlHI2XjG8yQaERMyXLCbNT1vZcZmYH8g4aY9ynVD984AlKgW5nQgdJhEJT_Y7q9sQ_hhmXCqZAwt4ROtreaMBMDQcJEXUuLN5SOEN",
+        url: "https://github.com"
     },
     {
         id: 4,
@@ -110,11 +113,28 @@ const projectsData = [
         problem: "Fractured IT asset management across multi-cloud and on-premise hardware.",
         solution: "Single-pane-of-glass dashboard for global infrastructure visibility.",
         tech: ["React", "Terraform", "PostgreSQL"],
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDUGn3CrtpUzBq8gicITi5co4LLO_1JHsFYzO7aw4cIrlr7I-vQmrI4wXsqqooiLlYA2XOsstVQmf7S5OEFARx_BQhCu3KyvaW_F_m96OdtJJa1_-NUkXQhbkqAeGV79bfvk45Sp6k9689s3Lj4d-77cAj6vlebUGGHsi4xx_B5GklcEzeXkdnfWrpUNctELaSyqavQlP4kE4bAb5j2F5SncEH-qm6ZGYSJYatK2ow4TGsXRR0_KVi388f5INx2rZxEfDz0ET3pgsyG"
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDUGn3CrtpUzBq8gicITi5co4LLO_1JHsFYzO7aw4cIrlr7I-vQmrI4wXsqqooiLlYA2XOsstVQmf7S5OEFARx_BQhCu3KyvaW_F_m96OdtJJa1_-NUkXQhbkqAeGV79bfvk45Sp6k9689s3Lj4d-77cAj6vlebUGGHsi4xx_B5GklcEzeXkdnfWrpUNctELaSyqavQlP4kE4bAb5j2F5SncEH-qm6ZGYSJYatK2ow4TGsXRR0_KVi388f5INx2rZxEfDz0ET3pgsyG",
+        url: "https://github.com"
     }
 ];
 
 export default function ProjectsShowcase() {
+    const [activeFilter, setActiveFilter] = useState('All');
+    
+    const filteredProjects = useMemo(() => {
+        if (activeFilter === 'All') return projectsData;
+        return projectsData.filter(p => p.category === activeFilter);
+    }, [activeFilter]);
+
+    const filters = [
+        { name: "All", icon: "widgets" },
+        { name: "Cybersecurity", icon: "shield" },
+        { name: "Software Engineering", icon: "terminal" },
+        { name: "ICT Management", icon: "lan" },
+        { name: "Research", icon: "science" },
+        { name: "Open Source", icon: "code_blocks" }
+    ];
+
     return (
         <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-stack-lg pt-32 pb-stack-xl flex flex-col lg:flex-row gap-stack-lg relative">
             {/* Side Navigation (Mobile Hidden, Project Filters on Desktop) */}
@@ -124,22 +144,16 @@ export default function ProjectsShowcase() {
                     <p className="font-label-caps text-label-caps text-on-surface-variant">Technical Domains</p>
                 </div>
                 <nav className="flex flex-col gap-2">
-                    <button className="flex items-center gap-4 p-3 bg-primary-container text-primary-fixed-dim rounded-xl hover:scale-105 transition-transform text-left">
-                        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>shield</span>
-                        <span className="font-label-caps text-label-caps">Cybersecurity</span>
-                    </button>
-                    <button className="flex items-center gap-4 p-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all text-left">
-                        <span className="material-symbols-outlined">terminal</span>
-                        <span className="font-label-caps text-label-caps">Software Engineering</span>
-                    </button>
-                    <button className="flex items-center gap-4 p-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all text-left">
-                        <span className="material-symbols-outlined">lan</span>
-                        <span className="font-label-caps text-label-caps">ICT Management</span>
-                    </button>
-                    <button className="flex items-center gap-4 p-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all text-left">
-                        <span className="material-symbols-outlined">code_blocks</span>
-                        <span className="font-label-caps text-label-caps">Open Source</span>
-                    </button>
+                    {filters.map(filter => (
+                        <button 
+                            key={filter.name}
+                            onClick={() => setActiveFilter(filter.name)}
+                            className={`flex items-center gap-4 p-3 rounded-xl transition-all text-left ${activeFilter === filter.name ? 'bg-primary-container text-primary-fixed-dim hover:scale-105' : 'text-on-surface-variant hover:bg-surface-variant/50'}`}
+                        >
+                            <span className="material-symbols-outlined" style={activeFilter === filter.name ? { fontVariationSettings: "'FILL' 1" } : {}}>{filter.icon}</span>
+                            <span className="font-label-caps text-label-caps">{filter.name}</span>
+                        </button>
+                    ))}
                 </nav>
             </aside>
 
@@ -168,17 +182,21 @@ export default function ProjectsShowcase() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="lg:hidden flex flex-wrap gap-4 items-center bg-surface-container-high/50 p-2 rounded-2xl border border-white/5 backdrop-blur-md w-fit"
                     >
-                        <button className="px-6 py-2 rounded-xl bg-primary text-on-primary font-label-caps text-label-caps">All</button>
-                        <button className="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-white/5 font-label-caps text-label-caps transition-all">Cybersecurity</button>
-                        <button className="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-white/5 font-label-caps text-label-caps transition-all">Software Engineering</button>
-                        <button className="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-white/5 font-label-caps text-label-caps transition-all">ICT Management</button>
-                        <button className="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-white/5 font-label-caps text-label-caps transition-all">Research</button>
+                        {filters.map(filter => (
+                            <button 
+                                key={filter.name}
+                                onClick={() => setActiveFilter(filter.name)}
+                                className={`px-6 py-2 rounded-xl font-label-caps text-label-caps transition-all ${activeFilter === filter.name ? 'bg-primary text-on-primary' : 'text-on-surface-variant hover:bg-white/5'}`}
+                            >
+                                {filter.name}
+                            </button>
+                        ))}
                     </motion.div>
                 </section>
 
                 {/* Project Grid */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-                    {projectsData.map((project, i) => (
+                    {filteredProjects.map((project, i) => (
                         <motion.div
                             key={project.id}
                             initial={{ opacity: 0, y: 30 }}

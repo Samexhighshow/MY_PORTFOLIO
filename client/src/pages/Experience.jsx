@@ -1,6 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import MagneticButton from '../components/animations/MagneticButton';
+import { useNavigate } from 'react-router-dom';
 
 const timelineData = [
     {
@@ -73,8 +74,16 @@ const skillsData = [
 ];
 
 export default function Experience() {
+    const navigate = useNavigate();
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
+
+    // Different scroll speeds for timeline and skills
+    const timelineY = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    const skillsY = useTransform(scrollYProgress, [0, 1], [100, -50]);
+    
     return (
-        <main className="relative pt-[120px] overflow-hidden">
+        <main ref={containerRef} className="relative pt-[120px] overflow-hidden">
             <div className="absolute inset-0 -z-10 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px]"></div>
                 <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary-container/10 blur-[120px]"></div>
@@ -106,7 +115,7 @@ export default function Experience() {
                         <div className="h-[1px] w-24 bg-secondary-fixed/50"></div>
                     </div>
                     
-                    <div className="md:col-span-8 relative">
+                    <motion.div style={{ y: timelineY }} className="md:col-span-8 relative">
                         {/* Vertical Timeline Line */}
                         <div className="absolute left-0 md:left-0 top-0 bottom-0 w-[1px] bg-white/10"></div>
                         
@@ -142,11 +151,11 @@ export default function Experience() {
                 <h2 className="font-display-lg text-display-lg text-center mb-stack-lg tracking-tighter">
                     Core <span className="text-tertiary-fixed">Specializations</span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                <motion.div style={{ y: skillsY }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
                     {skillsData.map((skillGroup, idx) => (
                         <motion.div 
                             key={idx}
-                            className="p-gutter border border-white/10 backdrop-blur-xl bg-surface-container/50 rounded-xl relative group overflow-hidden"
+                            className="p-gutter border border-white/10 backdrop-blur-xl bg-surface-container/50 rounded-xl relative group overflow-hidden tech-border"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -175,10 +184,10 @@ export default function Experience() {
                 <div className="relative border border-white/10 backdrop-blur-xl p-stack-lg rounded-xl flex flex-col items-center text-center overflow-hidden">
                     <h2 className="font-display-lg text-headline-md mb-6 relative z-10">Ready to secure your digital infrastructure?</h2>
                     <div className="flex gap-4 relative z-10">
-                        <MagneticButton className="px-8 py-3 bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps rounded-full shadow-[0_0_20px_rgba(0,251,251,0.4)]">
+                        <MagneticButton onClick={() => window.open('/resume.pdf', '_blank')} className="px-8 py-3 bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps rounded-full shadow-[0_0_20px_rgba(0,251,251,0.4)]">
                             DOWNLOAD CV
                         </MagneticButton>
-                        <MagneticButton className="px-8 py-3 border border-secondary-fixed text-secondary-fixed font-label-caps text-label-caps rounded-full bg-transparent hover:bg-secondary-fixed/5">
+                        <MagneticButton onClick={() => navigate('/contact')} className="px-8 py-3 border border-secondary-fixed text-secondary-fixed font-label-caps text-label-caps rounded-full bg-transparent hover:bg-secondary-fixed/5">
                             CONTACT ME
                         </MagneticButton>
                     </div>

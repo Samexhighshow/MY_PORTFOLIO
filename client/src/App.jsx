@@ -4,6 +4,7 @@ import Lenis from 'lenis';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Spotlight from './components/animations/Spotlight';
+import CyberOverlay from './components/animations/CyberOverlay';
 import Home from './pages/Home';
 import ProjectsShowcase from './pages/ProjectsShowcase';
 import Experience from './pages/Experience';
@@ -35,7 +36,8 @@ function App() {
     }, []);
 
     return (
-        <div className="App flex flex-col min-h-screen">
+        <div className="App flex flex-col min-h-screen relative">
+            <CyberOverlay />
             <Spotlight />
             <Navbar />
             <div className="flex-grow">

@@ -89,7 +89,7 @@ export default function Contact() {
                             </button>
                         </div>
                         {/* LinkedIn */}
-                        <a href="#" className="bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-xl group block hover:bg-white/10 hover:border-white/20 transition-all">
+                        <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-xl group block hover:bg-white/10 hover:border-white/20 transition-all">
                             <span className="material-symbols-outlined text-primary mb-3">share</span>
                             <h3 className="font-headline-md text-body-lg text-secondary mb-1">LinkedIn</h3>
                             <p className="text-on-surface-variant text-body-sm mb-4">/in/cyber-professional</p>
@@ -99,7 +99,7 @@ export default function Contact() {
                             </div>
                         </a>
                         {/* WhatsApp */}
-                        <a href="#" className="bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-xl group block hover:bg-white/10 hover:border-white/20 transition-all">
+                        <a href="https://wa.me/1234567890" target="_blank" rel="noreferrer" className="bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-xl group block hover:bg-white/10 hover:border-white/20 transition-all">
                             <span className="material-symbols-outlined text-primary mb-3">chat_bubble</span>
                             <h3 className="font-headline-md text-body-lg text-secondary mb-1">WhatsApp</h3>
                             <p className="text-on-surface-variant text-body-sm mb-4">Fastest Response</p>
@@ -108,7 +108,7 @@ export default function Contact() {
                             </div>
                         </a>
                         {/* GitHub */}
-                        <a href="#" className="bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-xl group block hover:bg-white/10 hover:border-white/20 transition-all">
+                        <a href="https://github.com" target="_blank" rel="noreferrer" className="bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-xl group block hover:bg-white/10 hover:border-white/20 transition-all">
                             <span className="material-symbols-outlined text-primary mb-3">terminal</span>
                             <h3 className="font-headline-md text-body-lg text-secondary mb-1">GitHub</h3>
                             <p className="text-on-surface-variant text-body-sm mb-4">View Repositories</p>
@@ -170,6 +170,7 @@ export default function Contact() {
                                     Your data is encrypted and handled securely.
                                 </p>
                                 <MagneticButton 
+                                    type="submit"
                                     className={`px-10 py-4 rounded-full font-bold font-headline-md tracking-tight flex items-center gap-3 bg-gradient-to-r from-secondary-container to-tertiary-fixed text-surface ${status !== 'idle' ? 'opacity-80' : ''}`}
                                 >
                                     <span>

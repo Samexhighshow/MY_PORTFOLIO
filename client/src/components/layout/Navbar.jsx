@@ -17,7 +17,7 @@ export default function Navbar() {
         <nav className="fixed top-0 w-full z-50 border-b border-white/10 backdrop-blur-md bg-transparent h-20 transition-all duration-500">
             <div className="flex justify-between items-center w-full px-margin-mobile md:px-stack-lg max-w-container-max mx-auto h-full">
                 <Link to="/" className="font-headline-md text-[28px] md:text-[32px] font-extrabold tracking-[0.15em] relative group cursor-pointer select-none no-underline z-10">
-                    <span className="bg-gradient-to-r from-secondary-container via-primary-fixed-dim to-tertiary-fixed-dim text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,251,251,0.5)] transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(208,188,255,0.8)] uppercase">
+                    <span className="bg-gradient-to-r from-secondary-container via-primary-fixed-dim to-tertiary-fixed-dim text-transparent bg-clip-text drop-shadow-[0_0_8px_rgba(0,251,251,0.5)] transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(208,188,255,0.8)] uppercase cyber-glitch" data-text="MAXIMUS">
                         MAXIMUS
                     </span>
                     <div className="absolute -inset-2 bg-gradient-to-r from-secondary-container via-primary to-tertiary-fixed blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-full pointer-events-none"></div>

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
-export default function MagneticButton({ children, className = '', onClick }) {
+export default function MagneticButton({ children, className = '', onClick, type = 'button' }) {
     const ref = useRef(null);
 
     const handleMouseMove = (e) => {
@@ -20,6 +20,7 @@ export default function MagneticButton({ children, className = '', onClick }) {
     return (
         <button
             ref={ref}
+            type={type}
             className={`magnetic-button ${className}`}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}

@@ -32,7 +32,8 @@ const certsData = [
         icon: "security",
         issuer: "ISC²",
         date: "Nov 2023",
-        color: "primary"
+        color: "primary",
+        url: "https://isc2.org"
     },
     {
         title: "AWS Certified Security",
@@ -41,7 +42,8 @@ const certsData = [
         icon: "cloud_done",
         issuer: "Amazon",
         date: "Jan 2024",
-        color: "tertiary"
+        color: "tertiary",
+        url: "https://aws.amazon.com"
     },
     {
         title: "OSCP",
@@ -50,7 +52,8 @@ const certsData = [
         icon: "terminal",
         issuer: "OffSec",
         date: "Mar 2023",
-        color: "secondary-container"
+        color: "secondary-container",
+        url: "https://offsec.com"
     },
     {
         title: "PMP",
@@ -59,7 +62,8 @@ const certsData = [
         icon: "groups",
         issuer: "PMI",
         date: "Aug 2022",
-        color: "on-tertiary-container"
+        color: "on-tertiary-container",
+        url: "https://pmi.org"
     },
     {
         title: "CKAD",
@@ -68,7 +72,8 @@ const certsData = [
         icon: "hub",
         issuer: "Linux Foundation",
         date: "Oct 2023",
-        color: "primary-fixed-dim"
+        color: "primary-fixed-dim",
+        url: "https://linuxfoundation.org"
     },
     {
         title: "CCNA",
@@ -77,7 +82,8 @@ const certsData = [
         icon: "settings_input_component",
         issuer: "Cisco",
         date: "May 2022",
-        color: "surface-bright"
+        color: "surface-bright",
+        url: "https://cisco.com"
     }
 ];
 
@@ -161,7 +167,7 @@ export default function Certifications() {
                                 <span className="px-2 py-1 rounded bg-white/5 border border-white/10 font-label-caps text-[10px] text-on-surface-variant uppercase">{cert.date}</span>
                             </div>
                         </div>
-                        <button className="w-full mt-stack-md bg-gradient-to-r from-secondary-container to-primary text-surface py-3 rounded-lg font-bold text-body-sm flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(0,221,221,0.4)] transition-shadow relative z-10">
+                        <button onClick={() => window.open(cert.url, '_blank')} className="w-full mt-stack-md bg-gradient-to-r from-secondary-container to-primary text-surface py-3 rounded-lg font-bold text-body-sm flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(0,221,221,0.4)] transition-shadow relative z-10">
                             Verify Certificate <span className="material-symbols-outlined text-sm">open_in_new</span>
                         </button>
                     </motion.div>
