@@ -7,6 +7,31 @@ export default function Contact() {
     const [formData, setFormData] = useState({ name: '', email: '', type: 'Security Audit', message: '' });
     const [status, setStatus] = useState('idle');
     const [copied, setCopied] = useState(false);
+    const [isAcquiringTarget, setIsAcquiringTarget] = useState(true);
+    const [terminalLines, setTerminalLines] = useState([]);
+
+    useEffect(() => {
+        const lines = [
+            "Initializing secure protocol...",
+            "Routing connection through proxy [192.168.1.100]...",
+            "Bypassing standard firewalls...",
+            "Decrypting communication channel...",
+            "Target locked. Connection secure."
+        ];
+        
+        let currentLine = 0;
+        const interval = setInterval(() => {
+            setTerminalLines(prev => [...prev, lines[currentLine]]);
+            currentLine++;
+            
+            if (currentLine >= lines.length) {
+                clearInterval(interval);
+                setTimeout(() => setIsAcquiringTarget(false), 800);
+            }
+        }, 500);
+        
+        return () => clearInterval(interval);
+    }, []);
 
     const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -29,6 +54,31 @@ export default function Contact() {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
+
+    if (isAcquiringTarget) {
+        return (
+            <main className="pt-32 pb-stack-xl max-w-container-max mx-auto px-margin-mobile md:px-stack-lg min-h-[70vh] flex flex-col justify-center font-mono">
+                <div className="space-y-4 max-w-3xl">
+                    {terminalLines.map((line, i) => (
+                        <motion.div 
+                            key={i} 
+                            initial={{ opacity: 0, x: -10 }} 
+                            animate={{ opacity: 1, x: 0 }} 
+                            className="text-secondary-fixed text-sm md:text-base tracking-wider"
+                        >
+                            <span className="text-primary-fixed mr-2">{'>'}</span>
+                            {line}
+                        </motion.div>
+                    ))}
+                    <motion.div 
+                        animate={{ opacity: [1, 0] }} 
+                        transition={{ repeat: Infinity, duration: 0.8 }} 
+                        className="w-3 h-5 bg-secondary-fixed mt-4 inline-block"
+                    ></motion.div>
+                </div>
+            </main>
+        );
+    }
 
     return (
         <main className="pt-32 pb-stack-xl max-w-container-max mx-auto px-margin-mobile md:px-stack-lg">

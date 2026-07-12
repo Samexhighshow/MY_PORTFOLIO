@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import MagneticButton from '../components/animations/MagneticButton';
+import DecryptText from '../components/animations/DecryptText';
+import ParticleNetwork from '../components/animations/ParticleNetwork';
 import { useNavigate } from 'react-router-dom';
 
 const timelineData = [
@@ -84,26 +86,20 @@ export default function Experience() {
     
     return (
         <main ref={containerRef} className="relative pt-[120px] overflow-hidden">
-            <div className="absolute inset-0 -z-10 pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px]"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary-container/10 blur-[120px]"></div>
+            <div className="absolute inset-0 z-0">
+                <ParticleNetwork />
             </div>
 
             {/* Header Section */}
-            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-stack-xl">
-                <motion.div 
-                    className="max-w-3xl"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <h1 className="font-display-lg text-display-lg mb-stack-sm tracking-tighter">
-                        Strategic Architect of <span className="text-secondary-fixed">Digital Trust</span>.
+            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-stack-xl relative z-10">
+                <div className="text-center mb-stack-xl max-w-2xl mx-auto reveal active">
+                    <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 tracking-tighter">
+                        <DecryptText text="Professional" className="text-on-surface" /> <span className="text-primary"><DecryptText text="Trajectory" /></span>
                     </h1>
                     <p className="font-body-lg text-body-lg text-on-surface-variant opacity-80">
                         Engineering secure infrastructure and high-performance software at the intersection of innovation and enterprise resilience.
                     </p>
-                </motion.div>
+                </div>
             </section>
 
             {/* Experience Timeline Section */}
@@ -147,9 +143,9 @@ export default function Experience() {
             </section>
 
             {/* Technical Skills Grid */}
-            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-stack-xl">
+            <section className="py-stack-2xl relative z-10 px-margin-mobile md:px-stack-lg max-w-container-max mx-auto">
                 <h2 className="font-display-lg text-display-lg text-center mb-stack-lg tracking-tighter">
-                    Core <span className="text-tertiary-fixed">Specializations</span>
+                    <DecryptText text="Core" /> <span className="text-tertiary-fixed"><DecryptText text="Specializations" /></span>
                 </h2>
                 <motion.div style={{ y: skillsY }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
                     {skillsData.map((skillGroup, idx) => (

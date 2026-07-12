@@ -1,5 +1,6 @@
 import React, { useRef, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import DecryptText from '../components/animations/DecryptText';
 
 function ProjectCard3D({ project }) {
     const cardRef = useRef(null);
@@ -167,12 +168,14 @@ export default function ProjectsShowcase() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-secondary mb-6 leading-none">
-                            Engineering<br/><span className="text-primary italic">Excellence</span>
-                        </h1>
-                        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
-                            Architecting secure, scalable digital ecosystems where precision meets innovation. A collection of high-stakes technical ventures.
-                        </p>
+                        <div className="max-w-container-max mx-auto px-margin-mobile md:px-stack-lg mb-stack-xl text-center">
+                            <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 tracking-tighter">
+                                <DecryptText text="Architectural" className="text-on-surface" /> <span className="text-primary"><DecryptText text="Archive" /></span>
+                            </h1>
+                            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                                Architecting secure, scalable digital ecosystems where precision meets innovation. A collection of high-stakes technical ventures.
+                            </p>
+                        </div>
                     </motion.div>
 
                     {/* Horizontal Filter Bar */}

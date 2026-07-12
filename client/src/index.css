@@ -125,6 +125,17 @@
     --spotlight-bg: rgba(179, 197, 255, 0.07);
 }
 
+body.red-team {
+    --color-primary: #ff0000;
+    --color-primary-fixed-dim: #ff3333;
+    --color-secondary-container: #ff0000;
+    --color-secondary-fixed: #ff0000;
+    --color-secondary-fixed-dim: #ff3333;
+    --cyan-glow: rgba(255, 0, 0, 0.4);
+    --spotlight-bg: rgba(255, 0, 0, 0.07);
+    --color-tertiary-fixed: #ff0000;
+}
+
 body {
     background-color: var(--color-background);
     color: var(--color-on-background);

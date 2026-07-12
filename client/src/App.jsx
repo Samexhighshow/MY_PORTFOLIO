@@ -10,14 +10,17 @@ import CyberCursor from './components/animations/CyberCursor';
 import PageTransition from './components/animations/PageTransition';
 import SystemStatus from './components/layout/SystemStatus';
 import Terminal from './components/layout/Terminal';
+import useKonamiCode from './hooks/useKonamiCode';
 import Home from './pages/Home';
 import ProjectsShowcase from './pages/ProjectsShowcase';
 import Experience from './pages/Experience';
 import Certifications from './pages/Certifications';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 function App() {
     const location = useLocation();
+    useKonamiCode(); // Activates global red-team mode via document.body
 
     // Scroll to top on route change
     useEffect(() => {
@@ -63,6 +66,7 @@ function App() {
                         <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
                         <Route path="/certifications" element={<PageTransition><Certifications /></PageTransition>} />
                         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+                        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
                     </Routes>
                 </AnimatePresence>
             </div>
