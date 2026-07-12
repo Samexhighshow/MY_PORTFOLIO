@@ -29,10 +29,10 @@ export default function Hero() {
                             />
                         </span>
                     </div>
-                    <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg leading-none cyber-glitch" data-text="Designing, Securing, and Managing Enterprise Digital Solutions.">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
                         Designing, Securing, and Managing <span className="text-primary">Enterprise</span> Digital Solutions.
                     </h1>
-                    <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    <p className="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
                         Bridging the gap between robust security and high-performance engineering. Specialized in building resilient ICT ecosystems for the modern enterprise.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 pt-4">

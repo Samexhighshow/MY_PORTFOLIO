@@ -142,7 +142,7 @@ export default function Experience() {
                                 </div>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -176,7 +176,7 @@ export default function Experience() {
                             </div>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </section>
 
             {/* CTA Section */}
