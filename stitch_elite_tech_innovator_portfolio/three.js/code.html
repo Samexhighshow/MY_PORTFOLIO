@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_2 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_2" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_2');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+container.appendChild(renderer.domElement);
+
+// Create a futuristic 3D "Core" or "Node" representing technical expertise
+const geometry = new THREE.IcosahedronGeometry(2, 2);
+const material = new THREE.MeshPhongMaterial({
+    color: 0x00FFFF,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.6,
+    emissive: 0x8B5CF6,
+    emissiveIntensity: 0.5
+});
+
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
+
+// Add inner core
+const innerGeo = new THREE.SphereGeometry(1, 32, 32);
+const innerMat = new THREE.MeshStandardMaterial({
+    color: 0x002366,
+    metalness: 0.8,
+    roughness: 0.2,
+    emissive: 0x00FFFF,
+    emissiveIntensity: 0.2
+});
+const innerMesh = new THREE.Mesh(innerGeo, innerMat);
+scene.add(innerMesh);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+
+const pointLight = new THREE.PointLight(0x8B5CF6, 2);
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
+
+camera.position.z = 6;
+
+function animate() {
+    requestAnimationFrame(animate);
+    
+    mesh.rotation.x += 0.005;
+    mesh.rotation.y += 0.005;
+    
+    innerMesh.rotation.x -= 0.003;
+    innerMesh.rotation.y -= 0.003;
+    
+    // Subtle pulsing
+    const scale = 1 + Math.sin(Date.now() * 0.001) * 0.05;
+    mesh.scale.set(scale, scale, scale);
+    
+    renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () => {
+    const newWidth = container.clientWidth || window.innerWidth;
+    const newHeight = container.clientHeight || window.innerHeight;
+    camera.aspect = newWidth / newHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(newWidth, newHeight);
+});
+
+animate();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_2 -->
+</body>
+</html>

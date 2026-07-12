@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Geist:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-edge {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .timeline-line {
+            background: linear-gradient(180deg, #b3c5ff 0%, #32007d 100%);
+        }
+        .magnetic-button {
+            background: linear-gradient(135deg, #00dddd 0%, #d0bcff 100%);
+            transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        .magnetic-button:active {
+            transform: scale(0.95);
+        }
+        @keyframes pulse-cyan {
+            0% { box-shadow: 0 0 0 0 rgba(0, 221, 221, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 221, 221, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 221, 221, 0); }
+        }
+        .glow-cyan {
+            animation: pulse-cyan 2s infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#343946",
+                        "primary-container": "#002366",
+                        "surface-variant": "#2f3542",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "inverse-primary": "#435b9f",
+                        "tertiary-fixed": "#e9ddff",
+                        "on-primary-fixed": "#00174a",
+                        "on-tertiary-container": "#9f77ff",
+                        "secondary": "#ffffff",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "on-background": "#dde2f3",
+                        "surface": "#0e131f",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "outline-variant": "#444650",
+                        "surface-container": "#1a202c",
+                        "secondary-container": "#00fbfb",
+                        "on-tertiary": "#3c0091",
+                        "on-primary-container": "#758dd5",
+                        "inverse-surface": "#dde2f3",
+                        "tertiary": "#d0bcff",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#161c28",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-secondary-fixed": "#002020",
+                        "outline": "#8e909c",
+                        "surface-tint": "#b3c5ff",
+                        "surface-container-lowest": "#080e1a",
+                        "surface-container-highest": "#2f3542",
+                        "primary-fixed": "#dbe1ff",
+                        "error-container": "#93000a",
+                        "primary": "#b3c5ff",
+                        "on-secondary-container": "#007070",
+                        "on-surface": "#dde2f3",
+                        "surface-dim": "#0e131f",
+                        "tertiary-container": "#32007d",
+                        "surface-container-high": "#242a36",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "inverse-on-surface": "#2b303d",
+                        "on-secondary": "#003737",
+                        "secondary-fixed-dim": "#00dddd",
+                        "background": "#0e131f",
+                        "secondary-fixed": "#00fbfb",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#0d2c6e",
+                        "on-surface-variant": "#c5c6d2",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "64px",
+                        "stack-md": "24px",
+                        "container-max": "1280px",
+                        "stack-xl": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Geist"],
+                        "mono-code": ["Geist"],
+                        "display-lg": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "mono-code": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-sm overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+<div class="flex justify-between items-center px-margin-mobile py-4 max-w-container-max mx-auto">
+<span class="font-display-lg text-headline-md font-bold tracking-tighter text-primary">Nexus.Core</span>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-stack-xl">
+<!-- Hero Section (Mobile Specific) -->
+<section class="px-margin-mobile mb-stack-lg">
+<div class="relative overflow-hidden rounded-xl p-8 glass-card glass-edge">
+
+<div class="relative z-10">
+<span class="font-label-caps text-label-caps text-secondary mb-2 block">JOURNEY LOG</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-4">Professional Trajectory</h1>
+<p class="font-body-lg text-on-surface-variant">A chronicle of architectural engineering, security research, and digital transformation.</p>
+</div>
+</div>
+</section>
+<!-- Experience Timeline -->
+<section class="px-margin-mobile relative mb-stack-xl">
+<div class="absolute left-6 top-0 bottom-0 w-px timeline-line opacity-30"></div>
+<!-- Timeline Item 1 -->
+<div class="relative pl-12 mb-stack-md">
+<div class="absolute left-[20px] top-2 w-2.5 h-2.5 rounded-full bg-primary border-4 border-surface shadow-[0_0_15px_#b3c5ff]"></div>
+<div class="glass-card glass-edge p-6 rounded-xl">
+<span class="font-label-caps text-label-caps text-tertiary mb-1 block">2022 — PRESENT</span>
+<h3 class="font-headline-md text-headline-md text-secondary mb-1">Lead Systems Architect</h3>
+<p class="font-body-sm text-primary mb-4">CyberNexus Solutions</p>
+<p class="font-body-sm text-on-surface-variant mb-4">Orchestrating high-load distributed systems for enterprise fintech, prioritizing zero-trust protocols and immutable infrastructure deployments.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface font-label-caps text-[10px] rounded-sm border border-white/5">KUBERNETES</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface font-label-caps text-[10px] rounded-sm border border-white/5">GO</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface font-label-caps text-[10px] rounded-sm border border-white/5">TERRAFORM</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative pl-12 mb-stack-md">
+<div class="absolute left-[20px] top-2 w-2.5 h-2.5 rounded-full bg-tertiary-fixed-dim border-4 border-surface"></div>
+<div class="glass-card glass-edge p-6 rounded-xl">
+<span class="font-label-caps text-label-caps text-tertiary mb-1 block">2019 — 2022</span>
+<h3 class="font-headline-md text-headline-md text-secondary mb-1">Sr. Security Engineer</h3>
+<p class="font-body-sm text-primary mb-4">InfrasSec Corp</p>
+<p class="font-body-sm text-on-surface-variant mb-4">Led threat modeling initiatives and automated security auditing for Fortune 500 cloud migrations. Reduced vulnerability surface area by 65%.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface font-label-caps text-[10px] rounded-sm border border-white/5">PYTHON</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface font-label-caps text-[10px] rounded-sm border border-white/5">AWS WAF</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface font-label-caps text-[10px] rounded-sm border border-white/5">OSINT</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative pl-12">
+<div class="absolute left-[20px] top-2 w-2.5 h-2.5 rounded-full bg-outline-variant border-4 border-surface"></div>
+<div class="glass-card glass-edge p-6 rounded-xl">
+<span class="font-label-caps text-label-caps text-tertiary mb-1 block">2016 — 2019</span>
+<h3 class="font-headline-md text-headline-md text-secondary mb-1">Backend Developer</h3>
+<p class="font-body-sm text-primary mb-4">RootFlow Systems</p>
+<p class="font-body-sm text-on-surface-variant mb-4">Developed robust microservices architectures and optimized database performance for real-time data streaming applications.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface font-label-caps text-[10px] rounded-sm border border-white/5">NODE.JS</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface font-label-caps text-[10px] rounded-sm border border-white/5">POSTGRES</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface font-label-caps text-[10px] rounded-sm border border-white/5">REDIS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Specializations (Stacked) -->
+<section class="px-margin-mobile mb-stack-xl">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-8 text-center">Core Specializations</h2>
+<div class="flex flex-col gap-gutter">
+<!-- Spec 1 -->
+<div class="glass-card glass-edge p-8 rounded-xl border-l-2 border-l-primary">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="terminal">terminal</span>
+<h4 class="font-headline-md text-headline-md text-secondary">Backend Logic</h4>
+</div>
+<ul class="space-y-3 font-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span>High-concurrency API development</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span>Distributed system design patterns</span>
+</li>
+</ul>
+</div>
+<!-- Spec 2 -->
+<div class="glass-card glass-edge p-8 rounded-xl border-l-2 border-l-secondary-fixed">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="shield">shield</span>
+<h4 class="font-headline-md text-headline-md text-secondary">Security Ops</h4>
+</div>
+<ul class="space-y-3 font-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-lg" data-icon="check_circle">check_circle</span>
+<span>Penetration testing &amp; auditing</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-lg" data-icon="check_circle">check_circle</span>
+<span>Identity &amp; Access Management (IAM)</span>
+</li>
+</ul>
+</div>
+<!-- Spec 3 -->
+<div class="glass-card glass-edge p-8 rounded-xl border-l-2 border-l-tertiary">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="cloud">cloud</span>
+<h4 class="font-headline-md text-headline-md text-secondary">Cloud Native</h4>
+</div>
+<ul class="space-y-3 font-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="check_circle">check_circle</span>
+<span>Auto-scaling infrastructure as code</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="check_circle">check_circle</span>
+<span>CI/CD pipeline hardening</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-margin-mobile">
+<div class="relative p-10 rounded-2xl glass-card overflow-hidden text-center border border-white/20">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-tertiary/5 pointer-events-none"></div>
+<div class="relative z-10">
+<h2 class="font-display-lg-mobile text-headline-md text-secondary mb-6">Ready to secure your digital infrastructure?</h2>
+<p class="font-body-lg text-on-surface-variant mb-10">Let's discuss how Nexus.Core can fortify your software ecosystem and optimize your delivery pipeline.</p>
+<div class="flex flex-col gap-4">
+<button class="magnetic-button glow-cyan py-4 px-8 rounded-lg font-label-caps text-on-primary-fixed uppercase tracking-widest font-bold">
+                            Hire Me Now
+                        </button>
+<button class="py-4 px-8 rounded-lg border border-white/10 glass-card font-label-caps text-secondary uppercase tracking-widest font-semibold hover:bg-white/10 transition-colors">
+                            Technical Stack
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-stack-lg border-t border-outline-variant/20">
+<div class="flex flex-col justify-center items-center px-margin-mobile max-w-container-max mx-auto gap-stack-md text-center">
+<span class="font-display-lg text-body-lg font-bold text-secondary">Nexus.Core</span>
+<p class="font-body-sm text-on-surface-variant font-label-caps">© 2024 Nexus.Core. Architecting Secure Digital Frontiers.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="font-label-caps text-on-surface-variant hover:text-secondary text-xs uppercase tracking-tighter" href="#">Security Policy</a>
+<a class="font-label-caps text-on-surface-variant hover:text-secondary text-xs uppercase tracking-tighter" href="#">Technical Stack</a>
+<a class="font-label-caps text-on-surface-variant hover:text-secondary text-xs uppercase tracking-tighter" href="#">GitHub</a>
+<a class="font-label-caps text-on-surface-variant hover:text-secondary text-xs uppercase tracking-tighter" href="#">LinkedIn</a>
+</div>
+</div>
+</footer>
+<script>
+        // Magnetic button interaction for mobile touch
+        document.querySelectorAll('.magnetic-button').forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                btn.style.transform = 'scale(0.95)';
+            });
+            btn.addEventListener('touchend', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+
+        // Intersection observer for fade-in animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

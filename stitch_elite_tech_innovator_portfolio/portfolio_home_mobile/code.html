@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus.Core | Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Geist:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+        .glass-edge {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+        .text-gradient-primary {
+            background: linear-gradient(to right, #b3c5ff, #d0bcff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#343946",
+                        "primary-container": "#002366",
+                        "surface-variant": "#2f3542",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "inverse-primary": "#435b9f",
+                        "tertiary-fixed": "#e9ddff",
+                        "on-primary-fixed": "#00174a",
+                        "on-tertiary-container": "#9f77ff",
+                        "secondary": "#ffffff",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "on-background": "#dde2f3",
+                        "surface": "#0e131f",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "outline-variant": "#444650",
+                        "surface-container": "#1a202c",
+                        "secondary-container": "#00fbfb",
+                        "on-tertiary": "#3c0091",
+                        "on-primary-container": "#758dd5",
+                        "inverse-surface": "#dde2f3",
+                        "tertiary": "#d0bcff",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#161c28",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-secondary-fixed": "#002020",
+                        "outline": "#8e909c",
+                        "surface-tint": "#b3c5ff",
+                        "surface-container-lowest": "#080e1a",
+                        "surface-container-highest": "#2f3542",
+                        "primary-fixed": "#dbe1ff",
+                        "error-container": "#93000a",
+                        "primary": "#b3c5ff",
+                        "on-secondary-container": "#007070",
+                        "on-surface": "#dde2f3",
+                        "surface-dim": "#0e131f",
+                        "tertiary-container": "#32007d",
+                        "surface-container-high": "#242a36",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "inverse-on-surface": "#2b303d",
+                        "on-secondary": "#003737",
+                        "secondary-fixed-dim": "#00dddd",
+                        "background": "#0e131f",
+                        "secondary-fixed": "#00fbfb",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#0d2c6e",
+                        "on-surface-variant": "#c5c6d2",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "64px",
+                        "stack-md": "24px",
+                        "container-max": "1280px",
+                        "stack-xl": "120px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Geist"],
+                        "mono-code": ["Geist"],
+                        "display-lg": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "mono-code": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-lg selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+<div class="flex justify-between items-center px-margin-mobile py-4 max-w-container-max mx-auto">
+<span class="font-display-lg text-headline-md font-bold tracking-tighter text-primary">Nexus.Core</span>
+<div class="flex items-center gap-4">
+<button class="p-2 glass-card rounded-full active:scale-95 transition-transform" id="theme-toggle">
+<span class="material-symbols-outlined text-primary" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="p-2 glass-card rounded-full active:scale-95 transition-transform" id="mobile-menu-trigger">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Mobile Menu (Overlay) -->
+<div class="fixed inset-0 z-[60] bg-surface-container-lowest translate-x-full transition-transform duration-500 pointer-events-none" id="mobile-menu">
+<div class="flex flex-col h-full px-margin-mobile pt-24">
+<button class="absolute top-6 right-margin-mobile p-2 glass-card rounded-full" id="menu-close">
+<span class="material-symbols-outlined text-primary" data-icon="close">close</span>
+</button>
+<div class="flex flex-col gap-8">
+<a class="text-display-lg-mobile font-display-lg text-primary font-bold" href="#">Experience</a>
+<a class="text-display-lg-mobile font-display-lg text-on-surface-variant font-medium" href="#">Projects</a>
+<a class="text-display-lg-mobile font-display-lg text-on-surface-variant font-medium" href="#">Certifications</a>
+<a class="text-display-lg-mobile font-display-lg text-on-surface-variant font-medium" href="#">Contact</a>
+</div>
+<div class="mt-auto mb-12">
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-xl active:scale-95 transition-transform">
+                    Hire Me
+                </button>
+</div>
+</div>
+</div>
+<!-- Atmosphere Background -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+<div class="absolute -top-[20%] -left-[10%] w-[80%] h-[60%] rounded-full bg-primary/10 blur-[120px] animate-pulse"></div>
+<div class="absolute top-[40%] -right-[20%] w-[70%] h-[50%] rounded-full bg-tertiary/10 blur-[120px]"></div>
+</div>
+<main class="relative pt-32 space-y-stack-xl px-margin-mobile">
+<!-- Hero Section -->
+<section class="min-h-[618px] flex flex-col justify-center text-center items-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-primary/20 mb-stack-md">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-secondary-fixed-dim">AVAILABLE FOR PROJECTS</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface mb-6 tracking-tight">
+                Designing, Securing, and Managing <span class="text-gradient-primary">Enterprise Solutions</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[500px] mx-auto mb-8 leading-relaxed">
+                Architecting resilient digital infrastructure with a focus on high-stakes security and software excellence.
+            </p>
+<div class="flex flex-col w-full gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary font-bold rounded-xl active:scale-95 transition-transform shadow-lg shadow-primary/20">
+                    View Portfolio
+                </button>
+<button class="px-8 py-4 glass-card text-on-surface font-bold rounded-xl border border-white/10 active:scale-95 transition-transform">
+                    Contact Specialist
+                </button>
+</div>
+</section>
+<!-- Strategic Architect Section -->
+<section class="space-y-stack-md">
+<div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden glass-card">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105" data-alt="A professional, high-end close-up portrait of a technology leader in a dark, atmospheric setting. The lighting is dramatic and cinematic, with a soft blue rim light reflecting off the subject's face to emphasize a futuristic, cyberpunk-professional aesthetic. The subject wears a sharp, charcoal-colored tech-wear blazer. The background is a soft-focus digital command center with subtle glowing server racks, conveying a sense of expertise in cybersecurity and infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ4XUFyJg9kSBSmwhc04aAr-2XbwaHs7qfzVFC-LtGZvxhmm4L0fylVYdCQ7U4OSPnkroE24kPPUMjtG0FtHrIA95Vezf4kZkOHmjNAXvOfBwmR3lNKigHcmEWwRAR4DudXW0bfHd39ooXEgj7gXLhS3ILrdMCqJSXqCR1EQUI8vN1-AR9xFd1CciroiMSuejbNtmFCo3BYTBKJeeOt2NpAWzgolm_0J_Q_J1ced8fLXuj25WL4Dyrr2kKL6nBSbeDi2oFsUAoI47O"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="font-label-caps text-label-caps text-primary mb-2 block">STRATEGIC ARCHITECT</span>
+<h2 class="font-headline-md text-headline-md text-white">The Nexus Approach</h2>
+</div>
+</div>
+<div class="space-y-4">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Bridging the gap between executive vision and technical implementation. I specialize in multi-layered defense strategies and scalable cloud architectures.
+                </p>
+<div class="grid grid-cols-2 gap-2">
+<div class="glass-card p-4 rounded-xl">
+<div class="text-primary font-bold text-headline-md">12+</div>
+<div class="font-label-caps text-[10px] text-on-surface-variant uppercase">Years Experience</div>
+</div>
+<div class="glass-card p-4 rounded-xl">
+<div class="text-primary font-bold text-headline-md">85+</div>
+<div class="font-label-caps text-[10px] text-on-surface-variant uppercase">Secure Launches</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Specializations -->
+<section class="space-y-stack-md">
+<div class="text-center mb-stack-md">
+<h3 class="font-headline-md text-headline-md mb-2">Core Expertise</h3>
+<div class="h-1 w-12 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="space-y-4">
+<!-- Card 1 -->
+<div class="glass-card p-6 rounded-3xl border-l-4 border-l-primary group">
+<div class="w-12 h-12 bg-primary-container rounded-xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+</div>
+<h4 class="font-headline-md text-[24px] mb-2">Cybersecurity</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zero-trust architecture, penetration testing, and enterprise-grade threat mitigation protocols.</p>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-6 rounded-3xl border-l-4 border-l-tertiary group">
+<div class="w-12 h-12 bg-tertiary-container rounded-xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="cloud_done">cloud_done</span>
+</div>
+<h4 class="font-headline-md text-[24px] mb-2">Cloud Engineering</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Optimizing high-availability systems on AWS/Azure with automated CI/CD pipelines.</p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-6 rounded-3xl border-l-4 border-l-secondary-container group">
+<div class="w-12 h-12 bg-secondary-container/10 rounded-xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary-container" data-icon="terminal">terminal</span>
+</div>
+<h4 class="font-headline-md text-[24px] mb-2">Software Ops</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Developing performance-critical software tools for large-scale data processing.</p>
+</div>
+</div>
+</section>
+<!-- Case Studies -->
+<section class="space-y-stack-md">
+<div class="flex justify-between items-end mb-6">
+<h3 class="font-headline-md text-headline-md">Selected Cases</h3>
+<span class="font-label-caps text-label-caps text-primary underline">VIEW ALL</span>
+</div>
+<div class="space-y-8">
+<!-- Project 1 -->
+<div class="group">
+<div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A clean, minimalist software user interface for a cybersecurity dashboard. The UI features complex data visualizations, glowing network topology maps, and real-time security alerts. The color palette is dominated by dark navies and blacks, with sharp accents of cyan and electric purple. The perspective is a slight isometric angle, looking down at a sleek mobile device displaying the app in a dark, high-tech office environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgTxtsZLjnBhcJ6r0E-1lzl7Rs9GU6641AX9i1T_50-FYjlcrTpTTiKDNjl9eriRugoFUVk9BLjr74XJHReNzVpwnkmOb3T0a8g3rUlfNIW547MWwoXX4oE7ue7Sniav7pzp59Xmjcp6rfblRKcn1BCR2I6jpXXc08T1fV7TVfMj_Fqg-IjckCbGu24DIVuMOIMoNxfRFPbZ3KPhPuXCZfYW6rs_FGaq9WkHIRBgpJFd6cZwLqIyZsJ06R5HDc5OCGGkFGncYqMjld"/>
+<div class="absolute top-4 left-4 bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="font-label-caps text-[10px] text-primary">PROJECT 01: SENTINEL</span>
+</div>
+</div>
+<h5 class="font-headline-md text-[20px] mb-1">Global Threat Matrix</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">A real-time cybersecurity monitoring system for a Fortune 500 financial entity.</p>
+</div>
+<!-- Project 2 -->
+<div class="group">
+<div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A high-tech server room with glowing blue and purple LED lights highlighting the edges of sleek, dark server racks. The image uses a shallow depth of field to focus on the intricate cable management and glowing fiber optic connections. The overall aesthetic is clean, professional, and futuristic, representing high-end cloud infrastructure and data management. Cinematic lighting creates long shadows and a sense of immense scale." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOc_dFlfWbMayobzH3A7DKlTVEQ8Dek_tWc2x5ybsgmaSy5zWbI8flxiKhSO1q3koIeZEmzPN6cNHv4k26lzhbpiU5Wc6D7VDQdKierXSlB1IInAZFNRKnB2ND4-YbiYWDIUsQD5lPzb1g8O71QUjLkWhwvwAg3k5Uy1shVHtgH8nHGDD2kf1CveESspJkbLdefLu8IN12keFb2lbkhPHJV5bjDMBOsmGJEy0rIApNwZ55iiq_mr-njbimWbEOHpnKV8yAO6vwLm0x"/>
+<div class="absolute top-4 left-4 bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="font-label-caps text-[10px] text-primary">PROJECT 02: NEBULA</span>
+</div>
+</div>
+<h5 class="font-headline-md text-[20px] mb-1">Cloud Migration Core</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Architecting a zero-downtime transition of legacy data to a hybrid-cloud ecosystem.</p>
+</div>
+</div>
+</section>
+<!-- Contact CTA -->
+<section class="py-stack-lg">
+<div class="glass-card p-8 rounded-[40px] text-center border-t-2 border-primary/30 relative overflow-hidden">
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 blur-[60px]"></div>
+<h3 class="font-headline-md text-headline-md mb-4">Ready to Secure Your Future?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-8">Currently accepting select architectural consulting engagements for Q3 2024.</p>
+<button class="w-full py-4 bg-secondary text-on-secondary font-bold rounded-xl active:scale-95 transition-transform">
+                    Start a Conversation
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg border-t border-outline-variant/20 bg-surface-container-lowest mt-stack-xl">
+<div class="flex flex-col justify-between items-center px-margin-mobile max-w-container-max mx-auto gap-stack-md text-center">
+<div class="font-display-lg text-body-lg font-bold text-secondary">Nexus.Core</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary" href="#">Security Policy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary" href="#">Technical Stack</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary" href="#">GitHub</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary" href="#">LinkedIn</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant/60 leading-relaxed">
+                © 2024 Nexus.Core. Architecting Secure Digital Frontiers.
+            </div>
+</div>
+</footer>
+<script>
+        // Mobile Menu Logic
+        const menuTrigger = document.getElementById('mobile-menu-trigger');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuTrigger.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0', 'pointer-events-auto');
+            document.body.style.overflow = 'hidden';
+        });
+
+        menuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenu.classList.remove('translate-x-0', 'pointer-events-auto');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Simple Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Theme toggle micro-interaction (visual only as requested)
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            const icon = this.querySelector('.material-symbols-outlined');
+            if (icon.innerText === 'dark_mode') {
+                icon.innerText = 'light_mode';
+                // Note: Logic for system theme change would go here
+            } else {
+                icon.innerText = 'dark_mode';
+            }
+        });
+    </script>
+</body></html>

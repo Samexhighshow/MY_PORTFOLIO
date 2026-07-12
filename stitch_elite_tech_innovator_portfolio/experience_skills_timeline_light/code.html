@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEXUS TERMINAL | Experience &amp; Skills</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Geist:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-edge {
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(20px);
+        }
+        .timeline-glow {
+            box-shadow: 0 0 15px rgba(0, 35, 102, 0.2);
+        }
+        .magnetic-button {
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        @keyframes pulse-primary {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        .animate-pulse-primary {
+            animation: pulse-primary 3s infinite ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#b3c5ff",
+                    "on-primary-fixed": "#00174a",
+                    "surface-container-highest": "#e2e2ec",
+                    "primary-fixed": "#dbe1ff",
+                    "error": "#ba1a1a",
+                    "background": "#faf8ff",
+                    "inverse-surface": "#2b303d",
+                    "inverse-on-surface": "#dde2f3",
+                    "on-primary": "#ffffff",
+                    "surface": "#faf8ff",
+                    "on-secondary-container": "#002020",
+                    "on-surface": "#1a1b21",
+                    "surface-container-low": "#f2f3ff",
+                    "on-primary-container": "#00174a",
+                    "secondary-fixed": "#b3c5ff",
+                    "primary": "#435b9f",
+                    "surface-dim": "#d2d9f4",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "surface-container-high": "#e8e7f1",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#410002",
+                    "on-background": "#1a1b21",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c5c6d2",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "on-surface-variant": "#444650",
+                    "primary-container": "#dbe1ff",
+                    "secondary-fixed-dim": "#b3c5ff",
+                    "tertiary-container": "#ffd9e2",
+                    "tertiary-fixed": "#e9ddff",
+                    "on-tertiary-container": "#31105d",
+                    "secondary": "#435b9f",
+                    "on-secondary-fixed": "#00174a",
+                    "surface-bright": "#faf8ff",
+                    "surface-variant": "#e1e2ec",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#dbe1ff",
+                    "surface-container": "#eeedf7",
+                    "on-secondary-fixed-variant": "#2a4386",
+                    "tertiary": "#7055a4",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#2a4386",
+                    "inverse-primary": "#b3c5ff",
+                    "outline": "#757782",
+                    "on-tertiary-fixed": "#23005c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "stack-sm": "8px",
+                    "stack-lg": "64px",
+                    "stack-md": "24px",
+                    "container-max": "1280px",
+                    "stack-xl": "120px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Space Grotesk"],
+                    "mono-code": ["Geist"],
+                    "label-caps": ["Geist"],
+                    "headline-md": ["Space Grotesk"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "mono-code": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-lg overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Atmospheric Background -->
+<div class="fixed inset-0 -z-10 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-secondary/5 blur-[120px]"></div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm z-50 transition-all duration-300">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-md tracking-tighter text-on-surface font-bold">NEXUS TERMINAL</div>
+<div class="hidden md:flex items-center gap-stack-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ENGINEERING</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ICT MANAGEMENT</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">CYBERSECURITY</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="#">PROJECTS</a>
+</div>
+<button class="magnetic-button font-label-caps text-label-caps bg-primary text-on-primary px-6 py-2 rounded-full hover:shadow-lg transition-all">GET IN TOUCH</button>
+</div>
+</nav>
+<main class="relative pt-[120px]">
+<!-- Header Section -->
+<section class="px-gutter max-w-container-max mx-auto mb-stack-xl">
+<div class="max-w-3xl">
+<h1 class="font-display-lg text-display-lg mb-stack-sm tracking-tighter text-on-surface">Strategic Architect of <span class="text-primary">Digital Trust</span>.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Engineering secure infrastructure and high-performance software at the intersection of innovation and enterprise resilience.</p>
+</div>
+</section>
+<!-- Experience Timeline Section -->
+<section class="px-gutter max-w-container-max mx-auto mb-stack-xl relative">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4 sticky top-[120px] h-fit">
+<h2 class="font-display-lg text-headline-md text-on-surface mb-4">Professional <br/>Trajectory</h2>
+<p class="font-body-sm text-body-sm text-outline mb-8">A decade of engineering leadership across global fintech, security, and infrastructure sectors.</p>
+<div class="h-[1px] w-24 bg-primary/30"></div>
+</div>
+<div class="md:col-span-8 relative">
+<!-- Vertical Timeline Line -->
+<div class="absolute left-0 md:left-0 top-0 bottom-0 w-[1px] bg-outline-variant/50"></div>
+<!-- Entry 1 -->
+<div class="relative pl-10 pb-stack-lg group">
+<div class="absolute left-[-5px] top-1 w-[11px] h-[11px] rounded-full bg-primary timeline-glow group-hover:scale-150 transition-transform duration-300"></div>
+<span class="font-mono-code text-label-caps text-primary mb-2 block animate-pulse-primary">JAN 2022 — PRESENT</span>
+<h3 class="font-display-lg text-headline-md text-on-surface">Cybersecurity Consultant</h3>
+<p class="font-label-caps text-label-caps text-outline mb-4">GLOBAL TECH GROUP • CYBER DIVISION</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">Leading end-to-end security architecture for cloud-native enterprise deployments. Orchestrating red-team operations and automated threat response systems across distributed serverless environments.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">SIEM</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">AWS SECURITY</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">ZEROTRUST</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">TERRAFORM</span>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="relative pl-10 pb-stack-lg group">
+<div class="absolute left-[-5px] top-1 w-[11px] h-[11px] rounded-full bg-primary/30 timeline-glow group-hover:bg-primary group-hover:scale-150 transition-all duration-300"></div>
+<span class="font-mono-code text-label-caps text-primary mb-2 block">MAR 2019 — DEC 2021</span>
+<h3 class="font-display-lg text-headline-md text-on-surface">Senior Software Engineer</h3>
+<p class="font-label-caps text-label-caps text-outline mb-4">APOLLO FINTECH SOLUTIONS</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">Developed high-frequency ledger systems using Rust and Go. Optimized transaction throughput by 40% through low-level memory management and asynchronous I/O patterns.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">RUST</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">GOLANG</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">KUBERNETES</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">GCP</span>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="relative pl-10 pb-stack-lg group">
+<div class="absolute left-[-5px] top-1 w-[11px] h-[11px] rounded-full bg-primary/30 timeline-glow group-hover:bg-primary group-hover:scale-150 transition-all duration-300"></div>
+<span class="font-mono-code text-label-caps text-primary mb-2 block">JUN 2016 — FEB 2019</span>
+<h3 class="font-display-lg text-headline-md text-on-surface">ICT Manager</h3>
+<p class="font-label-caps text-label-caps text-outline mb-4">VANTAGE ENTERPRISE SYSTEMS</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">Managed a hybrid infrastructure across 12 regional offices. Implemented ITIL-aligned service management frameworks and migrated legacy on-prem systems to a resilient hybrid-cloud architecture.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">ITIL V4</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">AZURE AD</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">ISO 27001</span>
+<span class="px-3 py-1 bg-surface-container-high text-primary text-label-caps font-label-caps rounded-full glass-edge">VMWARE</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Skills Grid -->
+<section class="px-gutter max-w-container-max mx-auto mb-stack-xl">
+<h2 class="font-display-lg text-display-lg text-center mb-stack-lg tracking-tighter text-on-surface">Core <span class="text-primary">Specializations</span></h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Cybersecurity -->
+<div class="p-gutter glass-edge bg-surface-container-low/50 rounded-xl relative group overflow-hidden border border-outline-variant/20 shadow-sm">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-headline-md">shield</span>
+<h3 class="font-label-caps text-label-caps text-on-surface font-bold">CYBERSECURITY</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center group/skill cursor-default">
+<span class="font-body-sm text-on-surface-variant">Pen Testing</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">SIEM / SOC Ops</span>
+<span class="w-2 h-2 rounded-full bg-primary/20"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Identity Mgmt</span>
+<span class="w-2 h-2 rounded-full bg-primary/20"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Network Security</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+</div>
+</div>
+<!-- Software Engineering -->
+<div class="p-gutter glass-edge bg-surface-container-low/50 rounded-xl relative group overflow-hidden border border-outline-variant/20 shadow-sm">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-headline-md">terminal</span>
+<h3 class="font-label-caps text-label-caps text-on-surface font-bold">SOFTWARE ENG</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Distributed Systems</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Microservices</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Kubernetes</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">CI/CD Pipelines</span>
+<span class="w-2 h-2 rounded-full bg-primary/20"></span>
+</div>
+</div>
+</div>
+<!-- ICT Management -->
+<div class="p-gutter glass-edge bg-surface-container-low/50 rounded-xl relative group overflow-hidden border border-outline-variant/20 shadow-sm">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-headline-md">settings_suggest</span>
+<h3 class="font-label-caps text-label-caps text-on-surface font-bold">ICT MANAGEMENT</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Infrastructure Strategy</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Cloud Architecture</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">ITIL Governance</span>
+<span class="w-2 h-2 rounded-full bg-primary/20"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Business Continuity</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+</div>
+</div>
+<!-- Programming Languages -->
+<div class="p-gutter glass-edge bg-surface-container-low/50 rounded-xl relative group overflow-hidden border border-outline-variant/20 shadow-sm">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-headline-md">code_blocks</span>
+<h3 class="font-label-caps text-label-caps text-on-surface font-bold">LANGUAGES</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Rust / Go</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">TypeScript / Node</span>
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(67,91,159,0.5)]"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">Python (Security Scripting)</span>
+<span class="w-2 h-2 rounded-full bg-primary/20"></span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-on-surface-variant">C++ / Systems Programming</span>
+<span class="w-2 h-2 rounded-full bg-primary/20"></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-gutter max-w-container-max mx-auto mb-stack-xl">
+<div class="relative glass-edge p-stack-lg rounded-xl flex flex-col items-center text-center overflow-hidden bg-primary/5 border border-primary/20">
+<h2 class="font-display-lg text-headline-md mb-6 relative z-10 text-on-surface">Ready to secure your digital infrastructure?</h2>
+<div class="flex gap-4 relative z-10">
+<button class="magnetic-button px-8 py-3 bg-primary text-on-primary font-label-caps text-label-caps rounded-full shadow-lg">DOWNLOAD CV</button>
+<button class="magnetic-button px-8 py-3 border border-primary text-primary font-label-caps text-label-caps rounded-full bg-transparent hover:bg-primary/5">CONTACT ME</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-stack-lg border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-stack-md">
+<div class="font-display-lg text-headline-md text-on-surface font-bold">NEXUS TERMINAL</div>
+<div class="flex flex-wrap justify-center gap-stack-md">
+<a class="font-body-sm text-body-sm text-outline hover:text-primary transition-colors" href="#">PRIVACY POLICY</a>
+<a class="font-body-sm text-body-sm text-outline hover:text-primary transition-colors" href="#">TERMS OF SERVICE</a>
+<a class="font-body-sm text-body-sm text-outline hover:text-primary transition-colors" href="#">DOCUMENTATION</a>
+<a class="font-body-sm text-body-sm text-outline hover:text-primary transition-colors" href="#">RESOURCES</a>
+</div>
+<div class="font-body-sm text-body-sm text-outline">© 2024 NEXUS TERMINAL. SECURED BY DESIGN.</div>
+</div>
+</footer>
+<script>
+    // Magnetic button effect
+    document.querySelectorAll('.magnetic-button').forEach(button => {
+        button.addEventListener('mousemove', (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        });
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'translate(0, 0)';
+        });
+    });
+
+    // Simple scroll reveal for timeline entries
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.relative.pl-10').forEach(item => {
+        item.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        observer.observe(item);
+    });
+</script>
+</body></html>

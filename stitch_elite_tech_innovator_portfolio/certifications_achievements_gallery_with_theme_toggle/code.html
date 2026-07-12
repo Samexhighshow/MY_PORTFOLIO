@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus.Core | Credentials &amp; Milestones</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#b3c5ff",
+                        "surface-bright": "#343946",
+                        "surface": "#0e131f",
+                        "tertiary": "#d0bcff",
+                        "on-primary-container": "#758dd5",
+                        "secondary-fixed-dim": "#00dddd",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "surface-container-lowest": "#080e1a",
+                        "outline": "#8e909c",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "on-primary-fixed": "#00174a",
+                        "inverse-on-surface": "#2b303d",
+                        "inverse-primary": "#435b9f",
+                        "on-surface-variant": "#c5c6d2",
+                        "surface-variant": "#2f3542",
+                        "inverse-surface": "#dde2f3",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#2f3542",
+                        "secondary": "#ffffff",
+                        "tertiary-container": "#32007d",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "outline-variant": "#444650",
+                        "error": "#ffb4ab",
+                        "secondary-container": "#00fbfb",
+                        "tertiary-fixed": "#e9ddff",
+                        "primary-container": "#002366",
+                        "on-tertiary": "#3c0091",
+                        "secondary-fixed": "#00fbfb",
+                        "surface-dim": "#0e131f",
+                        "on-secondary": "#003737",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "surface-container-high": "#242a36",
+                        "on-primary": "#0d2c6e",
+                        "primary-fixed": "#dbe1ff",
+                        "background": "#0e131f",
+                        "surface-container-low": "#161c28",
+                        "on-tertiary-container": "#9f77ff",
+                        "on-error": "#690005",
+                        "surface-container": "#1a202c",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "on-background": "#dde2f3",
+                        "on-secondary-container": "#007070",
+                        "primary": "#b3c5ff",
+                        "on-secondary-fixed": "#002020",
+                        "on-surface": "#dde2f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-xl": "120px",
+                        "margin-mobile": "20px",
+                        "stack-md": "24px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "stack-lg": "64px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "mono-code": ["Geist"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Geist"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "mono-code": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #030712;
+            color: #dde2f3;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        html:not(.dark) body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html:not(.dark) .glass-card {
+            background: rgba(15, 23, 42, 0.03);
+            border: 1px solid rgba(15, 23, 42, 0.1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 221, 221, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        html:not(.dark) .glass-card:hover {
+            background: rgba(15, 23, 42, 0.05);
+            box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+        }
+
+        .magnetic-btn {
+            background: linear-gradient(135deg, #00dddd 0%, #b3c5ff 100%);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .magnetic-btn:hover {
+            box-shadow: 0 0 20px rgba(0, 221, 221, 0.4);
+        }
+
+        .glow-sphere {
+            position: absolute;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+            border-radius: 100%;
+        }
+
+        .border-gradient {
+            border: 1px solid transparent;
+            background: linear-gradient(to right, #0e131f, #0e131f) padding-box,
+                        linear-gradient(to right, rgba(255,255,255,0.2), rgba(0,221,221,0.5)) border-box;
+        }
+        
+        html:not(.dark) .border-gradient {
+            background: linear-gradient(to right, #f8fafc, #f8fafc) padding-box,
+                        linear-gradient(to right, rgba(15,23,42,0.1), rgba(0,221,221,0.3)) border-box;
+        }
+
+        .active-filter {
+            background: rgba(179, 197, 255, 0.1);
+            border-color: #b3c5ff;
+            color: #b3c5ff;
+        }
+
+        html:not(.dark) .active-filter {
+            background: rgba(67, 91, 159, 0.1);
+            border-color: #435b9f;
+            color: #435b9f;
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg transition-colors duration-300">
+<!-- Atmospheric Background Effects -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+<div class="glow-sphere bg-[#435b9f] w-[600px] h-[600px] -top-[200px] -left-[200px] dark:opacity-15 opacity-10"></div>
+<div class="glow-sphere bg-[#32007d] w-[500px] h-[500px] bottom-[10%] -right-[100px] dark:opacity-15 opacity-5"></div>
+</div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 dark:bg-surface/60 backdrop-blur-xl border-b border-white/10 dark:border-white/10 border-black/5 shadow-2xl transition-colors duration-300">
+<nav class="flex justify-between items-center px-margin-mobile md:px-stack-lg py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-md font-bold tracking-tighter text-primary dark:text-primary">Nexus.Core</div>
+<div class="hidden md:flex gap-stack-md items-center">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Experience</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Projects</a>
+<a class="text-primary dark:text-primary font-bold border-b-2 border-primary pb-1" href="#">Certifications</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full glass-card border-none hover:bg-white/10 dark:hover:bg-white/10 hover:bg-black/5 transition-colors" id="theme-toggle">
+<span class="material-symbols-outlined text-primary" id="theme-icon">dark_mode</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold active:scale-95 transition-transform">
+                Hire Me
+            </button>
+</div>
+</nav>
+</header>
+<main class="pt-[140px] pb-stack-xl px-margin-mobile md:px-stack-lg max-w-container-max mx-auto">
+<!-- Hero Section -->
+<section class="mb-stack-lg text-center md:text-left">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-secondary dark:text-secondary text-slate-900 mb-4">
+            Credentials &amp; <span class="text-primary">Milestones</span>
+</h1>
+<p class="font-body-lg text-on-surface-variant dark:text-on-surface-variant text-slate-600 max-w-2xl">
+            A definitive collection of validated expertise across cybersecurity, infrastructure, and engineering. Every milestone represents a commitment to technical excellence and professional security.
+        </p>
+</section>
+<!-- Achievements Stats Section -->
+<section class="mb-stack-xl">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="glass-card p-stack-md rounded-xl text-center border-gradient">
+<span class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 block mb-1" id="stat-1">0</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">Global Certifications</span>
+</div>
+<div class="glass-card p-stack-md rounded-xl text-center border-gradient">
+<span class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 block mb-1" id="stat-2">0</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">Projects Delivered</span>
+</div>
+<div class="glass-card p-stack-md rounded-xl text-center border-gradient">
+<span class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 block mb-1" id="stat-3">0</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">Orgs Supported</span>
+</div>
+<div class="glass-card p-stack-md rounded-xl text-center border-gradient">
+<span class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 block mb-1" id="stat-4">0</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">Tech Articles</span>
+</div>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="mb-stack-md">
+<div class="flex flex-wrap items-center gap-stack-sm overflow-x-auto pb-4 scrollbar-hide">
+<button class="glass-card px-6 py-2 rounded-full font-label-caps text-label-caps active-filter">All</button>
+<button class="glass-card px-6 py-2 rounded-full font-label-caps text-label-caps hover:text-primary dark:text-on-surface-variant text-slate-600">Cybersecurity</button>
+<button class="glass-card px-6 py-2 rounded-full font-label-caps text-label-caps hover:text-primary dark:text-on-surface-variant text-slate-600">Networking</button>
+<button class="glass-card px-6 py-2 rounded-full font-label-caps text-label-caps hover:text-primary dark:text-on-surface-variant text-slate-600">Cloud</button>
+<button class="glass-card px-6 py-2 rounded-full font-label-caps text-label-caps hover:text-primary dark:text-on-surface-variant text-slate-600">Programming</button>
+<button class="glass-card px-6 py-2 rounded-full font-label-caps text-label-caps hover:text-primary dark:text-on-surface-variant text-slate-600">Leadership</button>
+</div>
+</section>
+<!-- Certifications Gallery -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: CISSP -->
+<div class="glass-card group relative overflow-hidden rounded-xl p-stack-md flex flex-col justify-between h-[320px]">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all"></div>
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container dark:bg-surface-container bg-slate-200 flex items-center justify-center border border-white/10 dark:border-white/10 border-black/5">
+<span class="material-symbols-outlined text-secondary dark:text-secondary text-slate-700 text-3xl" data-weight="fill">security</span>
+</div>
+<span class="font-mono-code text-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-500">Active</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 mb-2 group-hover:text-primary transition-colors">CISSP</h3>
+<p class="font-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-600">Certified Information Systems Security Professional</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">ISC²</span>
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">Nov 2023</span>
+</div>
+</div>
+<button class="w-full mt-stack-md magnetic-btn text-on-primary py-3 rounded-lg font-bold text-body-sm flex items-center justify-center gap-2">
+                Verify Certificate <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<!-- Card 2: AWS Security -->
+<div class="glass-card group relative overflow-hidden rounded-xl p-stack-md flex flex-col justify-between h-[320px]">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-tertiary/10 rounded-full blur-2xl group-hover:bg-tertiary/20 transition-all"></div>
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container dark:bg-surface-container bg-slate-200 flex items-center justify-center border border-white/10 dark:border-white/10 border-black/5">
+<span class="material-symbols-outlined text-secondary dark:text-secondary text-slate-700 text-3xl" data-weight="fill">cloud_done</span>
+</div>
+<span class="font-mono-code text-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-500">Expert</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 mb-2 group-hover:text-primary transition-colors">AWS Certified Security</h3>
+<p class="font-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-600">Specialty: Enterprise Infrastructure &amp; Identity Protection</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">Amazon</span>
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">Jan 2024</span>
+</div>
+</div>
+<button class="w-full mt-stack-md magnetic-btn text-on-primary py-3 rounded-lg font-bold text-body-sm flex items-center justify-center gap-2">
+                Verify Certificate <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<!-- Card 3: OSCP -->
+<div class="glass-card group relative overflow-hidden rounded-xl p-stack-md flex flex-col justify-between h-[320px]">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary-container/10 rounded-full blur-2xl group-hover:bg-secondary-container/20 transition-all"></div>
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container dark:bg-surface-container bg-slate-200 flex items-center justify-center border border-white/10 dark:border-white/10 border-black/5">
+<span class="material-symbols-outlined text-secondary dark:text-secondary text-slate-700 text-3xl" data-weight="fill">terminal</span>
+</div>
+<span class="font-mono-code text-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-500">Offensive</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 mb-2 group-hover:text-primary transition-colors">OSCP</h3>
+<p class="font-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-600">Offensive Security Certified Professional (PEN-200)</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">OffSec</span>
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">Mar 2023</span>
+</div>
+</div>
+<button class="w-full mt-stack-md magnetic-btn text-on-primary py-3 rounded-lg font-bold text-body-sm flex items-center justify-center gap-2">
+                Verify Certificate <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<!-- Card 4: PMP -->
+<div class="glass-card group relative overflow-hidden rounded-xl p-stack-md flex flex-col justify-between h-[320px]">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-on-tertiary-container/10 rounded-full blur-2xl group-hover:bg-on-tertiary-container/20 transition-all"></div>
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container dark:bg-surface-container bg-slate-200 flex items-center justify-center border border-white/10 dark:border-white/10 border-black/5">
+<span class="material-symbols-outlined text-secondary dark:text-secondary text-slate-700 text-3xl" data-weight="fill">groups</span>
+</div>
+<span class="font-mono-code text-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-500">Mgmt</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 mb-2 group-hover:text-primary transition-colors">PMP</h3>
+<p class="font-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-600">Project Management Professional (Enterprise Grade)</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">PMI</span>
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">Aug 2022</span>
+</div>
+</div>
+<button class="w-full mt-stack-md magnetic-btn text-on-primary py-3 rounded-lg font-bold text-body-sm flex items-center justify-center gap-2">
+                Verify Certificate <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<!-- Card 5: CKAD -->
+<div class="glass-card group relative overflow-hidden rounded-xl p-stack-md flex flex-col justify-between h-[320px]">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary-fixed-dim/10 rounded-full blur-2xl group-hover:bg-primary-fixed-dim/20 transition-all"></div>
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container dark:bg-surface-container bg-slate-200 flex items-center justify-center border border-white/10 dark:border-white/10 border-black/5">
+<span class="material-symbols-outlined text-secondary dark:text-secondary text-slate-700 text-3xl" data-weight="fill">hub</span>
+</div>
+<span class="font-mono-code text-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-500">Cloud</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 mb-2 group-hover:text-primary transition-colors">CKAD</h3>
+<p class="font-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-600">Certified Kubernetes Application Developer</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">Linux Foundation</span>
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">Oct 2023</span>
+</div>
+</div>
+<button class="w-full mt-stack-md magnetic-btn text-on-primary py-3 rounded-lg font-bold text-body-sm flex items-center justify-center gap-2">
+                Verify Certificate <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+<!-- Card 6: CCNA -->
+<div class="glass-card group relative overflow-hidden rounded-xl p-stack-md flex flex-col justify-between h-[320px]">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-surface-bright/10 rounded-full blur-2xl group-hover:bg-surface-bright/20 transition-all"></div>
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container dark:bg-surface-container bg-slate-200 flex items-center justify-center border border-white/10 dark:border-white/10 border-black/5">
+<span class="material-symbols-outlined text-secondary dark:text-secondary text-slate-700 text-3xl" data-weight="fill">settings_input_component</span>
+</div>
+<span class="font-mono-code text-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-500">Foundations</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 mb-2 group-hover:text-primary transition-colors">CCNA</h3>
+<p class="font-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-600">Cisco Certified Network Associate (Enterprise Routing)</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">Cisco</span>
+<span class="px-2 py-1 rounded bg-white/5 dark:bg-white/5 bg-slate-100 border border-white/10 dark:border-white/10 border-black/5 font-label-caps text-[10px] text-on-surface-variant dark:text-on-surface-variant text-slate-600 uppercase">May 2022</span>
+</div>
+</div>
+<button class="w-full mt-stack-md magnetic-btn text-on-primary py-3 rounded-lg font-bold text-body-sm flex items-center justify-center gap-2">
+                Verify Certificate <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</section>
+<!-- Technical Articles / Achievements Highlights -->
+<section class="mt-stack-xl">
+<h2 class="font-display-lg text-headline-md text-secondary dark:text-secondary text-slate-900 mb-stack-md flex items-center gap-4">
+<span class="h-[1px] flex-1 bg-white/10 dark:bg-white/10 bg-black/10"></span>
+            Key Achievements
+            <span class="h-[1px] flex-1 bg-white/10 dark:bg-white/10 bg-black/10"></span>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="glass-card p-stack-md rounded-xl flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<div>
+<h4 class="font-display-lg text-body-lg text-secondary dark:text-secondary text-slate-800 mb-1">Global Security Compliance</h4>
+<p class="font-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-600">Orchestrated the security infrastructure transition for a Fortune 500 company, resulting in 100% compliance with ISO 27001 standards within 8 months.</p>
+</div>
+</div>
+<div class="glass-card p-stack-md rounded-xl flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-container">article</span>
+</div>
+<div>
+<h4 class="font-display-lg text-body-lg text-secondary dark:text-secondary text-slate-800 mb-1">Thought Leadership</h4>
+<p class="font-body-sm text-on-surface-variant dark:text-on-surface-variant text-slate-600">Published 5+ in-depth technical whitepapers on Zero-Trust Architecture and Cloud Native Security featured in major industry newsletters.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg border-t border-outline-variant/20 dark:border-outline-variant/20 border-black/5 bg-surface-container-lowest dark:bg-surface-container-lowest bg-slate-100 transition-colors duration-300">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-stack-lg max-w-container-max mx-auto gap-stack-md">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-display-lg text-body-lg font-bold text-secondary dark:text-secondary text-slate-900 mb-2">Nexus.Core</div>
+<p class="font-body-sm text-label-caps text-on-surface-variant dark:text-on-surface-variant text-slate-500">© 2024 Nexus.Core. Architecting Secure Digital Frontiers.</p>
+</div>
+<div class="flex gap-stack-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary text-slate-500 hover:text-slate-900 transition-opacity" href="#">Security Policy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary text-slate-500 hover:text-slate-900 transition-opacity" href="#">Technical Stack</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary text-slate-500 hover:text-slate-900 transition-opacity" href="#">GitHub</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary text-slate-500 hover:text-slate-900 transition-opacity" href="#">LinkedIn</a>
+</div>
+</div>
+</footer>
+<script>
+    // Theme Switch Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlElement = document.documentElement;
+
+    function updateTheme(isDark) {
+        if (isDark) {
+            htmlElement.classList.add('dark');
+            themeIcon.innerText = 'light_mode';
+        } else {
+            htmlElement.classList.remove('dark');
+            themeIcon.innerText = 'dark_mode';
+        }
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const isDark = !htmlElement.classList.contains('dark');
+        updateTheme(isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Check saved preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        updateTheme(false);
+    } else {
+        updateTheme(true);
+    }
+
+    // Micro-interaction for Stats Counting
+    function animateCounter(id, target, suffix = '+') {
+        const element = document.getElementById(id);
+        if (!element) return;
+        let current = 0;
+        const duration = 2000;
+        const stepTime = Math.abs(Math.floor(duration / target));
+        
+        const timer = setInterval(() => {
+            current += 1;
+            element.innerText = current + suffix;
+            if (current >= target) {
+                clearInterval(timer);
+            }
+        }, stepTime);
+    }
+
+    // Trigger on load
+    window.addEventListener('DOMContentLoaded', () => {
+        animateCounter('stat-1', 15);
+        animateCounter('stat-2', 50);
+        animateCounter('stat-3', 10);
+        animateCounter('stat-4', 5);
+    });
+
+    // Simple magnetic button effect
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+</script>
+</body></html>

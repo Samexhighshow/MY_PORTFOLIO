@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AETHER_SYS | Projects Showcase</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Space+Grotesk:wght@600;700&amp;family=Geist&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .magnetic-hover {
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(67, 91, 159, 0.05) 0%, transparent 70%);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .tech-badge {
+            background: rgba(0, 112, 112, 0.05);
+            border: 1px solid rgba(0, 112, 112, 0.15);
+            transition: all 0.3s ease;
+        }
+        .tech-badge:hover {
+            background: rgba(0, 112, 112, 0.1);
+            border-color: #007070;
+        }
+        .parallax-container {
+            perspective: 1000px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#435b9f",
+                    "on-primary-fixed": "#00174a",
+                    "surface-container-highest": "#e2e2ec",
+                    "primary-fixed": "#dbe1ff",
+                    "error": "#ba1a1a",
+                    "background": "#faf8ff",
+                    "inverse-surface": "#2f3036",
+                    "inverse-on-surface": "#f1f0f7",
+                    "on-primary": "#ffffff",
+                    "surface": "#faf8ff",
+                    "on-secondary-container": "#002020",
+                    "on-surface": "#1a1b21",
+                    "surface-container-low": "#f2f3ff",
+                    "on-primary-container": "#00174a",
+                    "secondary-fixed": "#00fbfb",
+                    "primary": "#435b9f",
+                    "surface-dim": "#d2d9f4",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "surface-container-high": "#e8e7ef",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#410002",
+                    "on-background": "#1a1b21",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c5c6d2",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "on-surface-variant": "#444650",
+                    "primary-container": "#dbe1ff",
+                    "secondary-fixed-dim": "#00dddd",
+                    "tertiary-container": "#e9ddff",
+                    "tertiary-fixed": "#e9ddff",
+                    "on-tertiary-container": "#23005c",
+                    "secondary": "#006a6a",
+                    "on-secondary-fixed": "#002020",
+                    "surface-bright": "#faf8ff",
+                    "surface-variant": "#e1e2ec",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#00fbfb",
+                    "surface-container": "#f0f0f7",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "tertiary": "#6b4fa9",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#2a4386",
+                    "inverse-primary": "#b3c5ff",
+                    "outline": "#757780",
+                    "on-tertiary-fixed": "#23005c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-md": "24px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "stack-xl": "120px",
+                    "stack-sm": "8px",
+                    "stack-lg": "64px"
+            },
+            "fontFamily": {
+                    "mono-code": ["Geist"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Geist"],
+                    "display-lg": ["Space Grotesk"],
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "mono-code": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full bg-surface/80 backdrop-blur-xl border-b border-black/5 shadow-sm z-50">
+<nav class="flex justify-between items-center px-margin-mobile md:px-stack-lg h-20 w-full max-w-container-max mx-auto">
+<div class="font-display-lg text-[24px] tracking-tighter text-primary">AETHER_SYS</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-lg text-body-lg text-primary font-bold border-b-2 border-primary pb-1" href="#">Portfolio</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Services</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Security</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Insights</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-caps text-label-caps active:scale-95 transition-transform shadow-md">
+                Hire Me
+            </button>
+</nav>
+</header>
+<!-- Side Navigation -->
+<aside class="hidden xl:flex h-screen w-64 fixed left-0 top-0 flex-col gap-stack-sm p-stack-md bg-surface-container-low border-r border-outline-variant/30 z-40 pt-32">
+<div class="px-4 mb-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Project Filter</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Technical Domains</p>
+</div>
+<nav class="flex flex-col gap-2">
+<button class="flex items-center gap-4 p-3 bg-primary text-on-primary rounded-xl magnetic-hover text-left shadow-sm">
+<span class="material-symbols-outlined" data-icon="shield" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-caps text-label-caps">Cybersecurity</span>
+</button>
+<button class="flex items-center gap-4 p-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all text-left">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-label-caps text-label-caps">Software Engineering</span>
+</button>
+<button class="flex items-center gap-4 p-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all text-left">
+<span class="material-symbols-outlined" data-icon="lan">lan</span>
+<span class="font-label-caps text-label-caps">ICT Management</span>
+</button>
+<button class="flex items-center gap-4 p-3 text-on-surface-variant hover:bg-surface-variant rounded-xl transition-all text-left">
+<span class="material-symbols-outlined" data-icon="code_blocks">code_blocks</span>
+<span class="font-label-caps text-label-caps">Open Source</span>
+</button>
+</nav>
+</aside>
+<main class="xl:ml-64 pt-32 pb-stack-xl px-margin-mobile md:px-stack-lg max-w-container-max mx-auto overflow-visible">
+<!-- Hero Section -->
+<section class="relative mb-stack-xl">
+<div class="absolute inset-0 hero-gradient pointer-events-none -z-10"></div>
+<div class="parallax-container">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-none">
+                    Engineering<br/><span class="text-primary italic">Excellence</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
+                    Architecting secure, scalable digital ecosystems where precision meets innovation. A collection of high-stakes technical ventures.
+                </p>
+</div>
+<!-- Horizontal Filter Bar -->
+<div class="flex flex-wrap gap-4 items-center bg-surface-container-high p-2 rounded-2xl border border-black/5 shadow-sm w-fit">
+<button class="px-6 py-2 rounded-xl bg-primary text-on-primary font-label-caps text-label-caps shadow-sm">All</button>
+<button class="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-surface-variant font-label-caps text-label-caps transition-all">Cybersecurity</button>
+<button class="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-surface-variant font-label-caps text-label-caps transition-all">Software Engineering</button>
+<button class="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-surface-variant font-label-caps text-label-caps transition-all">ICT Management</button>
+<button class="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-surface-variant font-label-caps text-label-caps transition-all">Research</button>
+</div>
+</section>
+<!-- Project Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Project Card 1 -->
+<article class="reveal glass-card rounded-2xl overflow-hidden flex flex-col group h-full shadow-sm">
+<div class="h-80 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A high-tech control center dashboard with holographic zero-trust security visualizations" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6bTUs9WZqtlY69vT4M-_9M5X-d4BixaTEyhtlqXJB17sylLVfdrW6Cr3iTTlfDnEbkZl0et3Wbqiq9cMVDRkyCyjG7DewWyfck6LcFRGjld_TWY40VXMmnwT1YnhSRgBh5fHbaISuUfZfnkxN5VGQl91bULWamDCUOx0Pgfa9jCSXWD94fvYnsVzNOJx4jdE6wtGf73u674xlB3bylzYA6cmVpShDyDZqZ_wgei6gl-fjT5xm4qM5Im9EvHFUyguO0LoeccAQ5rKb')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent opacity-60"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="tech-badge px-3 py-1 rounded-full font-mono-code text-[10px] text-primary font-bold">CYBERSECURITY</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Project Aegis: Zero-Trust Ecosystem</h2>
+<div class="mb-6 space-y-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-error font-bold uppercase tracking-wider">Problem:</span> Vulnerable legacy perimeter security in distributed enterprise environments.
+                        </p>
+<p class="font-body-sm text-body-sm text-on-surface">
+<span class="text-secondary font-bold uppercase tracking-wider">Solution:</span> A decentralized identity-first architecture with real-time micro-segmentation.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">Rust</span>
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">Kubernetes</span>
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">gRPC</span>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-label-caps text-label-caps magnetic-hover shadow-md">View Case Study</button>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="code">code</span></a>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 2 -->
+<article class="reveal glass-card rounded-2xl overflow-hidden flex flex-col group h-full shadow-sm">
+<div class="h-80 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Conceptual 3D render of a high-performance event-driven software engine" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKoYCtkSEAKbPGHzx3XOgPT6O4CmfhTaDdpqYK6DMl1ovc5ESSkVHP__buxEAMJcN_vt6vayQFn4vVIaj_P5T0MrO254DMOEbJEQQLW9tvfP6lQKuoPUHuQctsMGtLkCcjjNtJAv3boI0IkQnzPNAYqxDYJ2KuRMQHYKl1xcdlNLkqHBvFgSdLnbT3pIQ7kQkRpzkvyqwiCCepWZiAysTLbhol_2KTIzsTt1PAPB4lXcpjd4Um_55Nf3FadCAENlZHu126iMEeRKc_')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent opacity-60"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="tech-badge px-3 py-1 rounded-full font-mono-code text-[10px] text-primary font-bold">SOFTWARE ENGINEERING</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Helix Engine: Event-Driven Core</h2>
+<div class="mb-6 space-y-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-error font-bold uppercase tracking-wider">Problem:</span> High-latency data processing pipelines causing bottlenecks in financial tech stacks.
+                        </p>
+<p class="font-body-sm text-body-sm text-on-surface">
+<span class="text-secondary font-bold uppercase tracking-wider">Solution:</span> Ultra-low latency Go-based engine utilizing lock-free data structures.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">Go</span>
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">Redis</span>
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">AWS</span>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-label-caps text-label-caps magnetic-hover shadow-md">View Case Study</button>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="code">code</span></a>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 3 -->
+<article class="reveal glass-card rounded-2xl overflow-hidden flex flex-col group h-full shadow-sm">
+<div class="h-80 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Sophisticated threat intelligence interface showing global map connections" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAL3na5cFWxQ2_dC1cY2GQt7zl211peYslmvY7J52rwm2swhHb6H4yiWzVeN55SXqatF1eh0mQK2rakR68voQS4_DcQG1T4A2Qd3Yhw-czhnoqk6iVvcVBVoARWGHx5-Cq3I7l3N8mt_JBwzAxNZnQJkzA6dwHb6oQy0tGAlCNdlHI2XjG8yQaERMyXLCbNT1vZcZmYH8g4aY9ynVD984AlKgW5nQgdJhEJT_Y7q9sQ_hhmXCqZAwt4ROtreaMBMDQcJEXUuLN5SOEN')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent opacity-60"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="tech-badge px-3 py-1 rounded-full font-mono-code text-[10px] text-primary font-bold">RESEARCH</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Sentinel: Threat Intelligence Platform</h2>
+<div class="mb-6 space-y-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-error font-bold uppercase tracking-wider">Problem:</span> Overwhelming noise in security logs hiding sophisticated state-sponsored attacks.
+                        </p>
+<p class="font-body-sm text-body-sm text-on-surface">
+<span class="text-secondary font-bold uppercase tracking-wider">Solution:</span> ML-powered anomaly detection model filtering 99.9% of telemetry noise.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">Python</span>
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">PyTorch</span>
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">Docker</span>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-label-caps text-label-caps magnetic-hover shadow-md">View Case Study</button>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="code">code</span></a>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 4 -->
+<article class="reveal glass-card rounded-2xl overflow-hidden flex flex-col group h-full shadow-sm">
+<div class="h-80 overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Intricate 3D node network visualization representing an ICT management system" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUGn3CrtpUzBq8gicITi5co4LLO_1JHsFYzO7aw4cIrlr7I-vQmrI4wXsqqooiLlYA2XOsstVQmf7S5OEFARx_BQhCu3KyvaW_F_m96OdtJJa1_-NUkXQhbkqAeGV79bfvk45Sp6k9689s3Lj4d-77cAj6vlebUGGHsi4xx_B5GklcEzeXkdnfWrpUNctELaSyqavQlP4kE4bAb5j2F5SncEH-qm6ZGYSJYatK2ow4TGsXRR0_KVi388f5INx2rZxEfDz0ET3pgsyG')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent opacity-60"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="tech-badge px-3 py-1 rounded-full font-mono-code text-[10px] text-primary font-bold">ICT MANAGEMENT</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Atlas: Infrastructure Orchestrator</h2>
+<div class="mb-6 space-y-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-error font-bold uppercase tracking-wider">Problem:</span> Fractured IT asset management across multi-cloud and on-premise hardware.
+                        </p>
+<p class="font-body-sm text-body-sm text-on-surface">
+<span class="text-secondary font-bold uppercase tracking-wider">Solution:</span> Single-pane-of-glass dashboard for global infrastructure visibility.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">React</span>
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">Terraform</span>
+<span class="tech-badge px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary">PostgreSQL</span>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-label-caps text-label-caps magnetic-hover shadow-md">View Case Study</button>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="code">code</span></a>
+</div>
+</div>
+</div>
+</article>
+</section>
+</main>
+<footer class="w-full py-stack-lg bg-surface-container-lowest border-t border-black/5 mt-stack-xl">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-stack-lg max-w-container-max mx-auto gap-8">
+<div class="font-label-caps text-label-caps text-primary">AETHER_SYS</div>
+<div class="flex gap-8">
+<a class="font-mono-code text-mono-code text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Protocol</a>
+<a class="font-mono-code text-mono-code text-on-surface-variant hover:text-secondary transition-colors" href="#">SLA</a>
+<a class="font-mono-code text-mono-code text-on-surface-variant hover:text-secondary transition-colors" href="#">Terminal Access</a>
+</div>
+<p class="font-mono-code text-mono-code text-on-surface-variant opacity-60">
+                © 2024 AETHER SYSTEMS. SECURED BY DESIGN.
+            </p>
+</div>
+</footer>
+<script>
+        // Reveal animation on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Magnetic Hover Effect
+        const magneticButtons = document.querySelectorAll('.magnetic-hover');
+        magneticButtons.forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0px, 0px)';
+            });
+        });
+
+        // 3D Card Depth Tilt
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+            });
+        });
+    </script>
+</body></html>

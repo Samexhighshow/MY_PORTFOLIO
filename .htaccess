@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 1. Route API requests to the PHP backend
+RewriteCond %{REQUEST_URI} ^/api/ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/(.*)$ api/index.php?request=$1 [QSA,NC,L]
+
+# 2. React Router SPA Fallback
+# If the request is not for a valid file or directory,
+# and it's not an API request, route it to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+RewriteRule ^(.*)$ index.html [QSA,L]
+</IfModule>

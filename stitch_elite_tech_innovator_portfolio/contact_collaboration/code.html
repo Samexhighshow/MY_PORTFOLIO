@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | CYBER_SHIELD</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Space+Grotesk:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#343946",
+                    "inverse-on-surface": "#2b303d",
+                    "inverse-surface": "#dde2f3",
+                    "primary": "#b3c5ff",
+                    "outline": "#8e909c",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "on-primary-fixed-variant": "#2a4386",
+                    "tertiary-container": "#32007d",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed": "#e9ddff",
+                    "primary-container": "#002366",
+                    "on-secondary-container": "#007070",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "surface-tint": "#b3c5ff",
+                    "on-secondary": "#003737",
+                    "secondary-fixed-dim": "#00dddd",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#00174a",
+                    "surface-container-low": "#161c28",
+                    "on-background": "#dde2f3",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "surface-container": "#1a202c",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-high": "#242a36",
+                    "surface-dim": "#0e131f",
+                    "on-primary-container": "#758dd5",
+                    "surface-container-lowest": "#080e1a",
+                    "error": "#ffb4ab",
+                    "outline-variant": "#444650",
+                    "surface": "#0e131f",
+                    "on-surface": "#dde2f3",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "surface-container-highest": "#2f3542",
+                    "secondary-fixed": "#00fbfb",
+                    "on-tertiary-fixed": "#23005c",
+                    "background": "#0e131f",
+                    "on-secondary-fixed": "#002020",
+                    "on-primary": "#0d2c6e",
+                    "secondary": "#ffffff",
+                    "surface-variant": "#2f3542",
+                    "tertiary": "#d0bcff",
+                    "secondary-container": "#00fbfb",
+                    "on-surface-variant": "#c5c6d2",
+                    "inverse-primary": "#435b9f",
+                    "on-tertiary": "#3c0091"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-xl": "120px",
+                    "stack-lg": "64px",
+                    "margin-mobile": "20px",
+                    "stack-md": "24px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "mono-code": ["Geist"],
+                    "label-caps": ["Geist"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Space Grotesk"],
+                    "display-lg-mobile": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "mono-code": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0e131f;
+            color: #dde2f3;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-panel:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .magnetic-button {
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+            background: linear-gradient(135deg, #00fbfb 0%, #d0bcff 100%);
+            color: #0e131f;
+        }
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(90deg, #00fbfb, #d0bcff, #00fbfb);
+            background-size: 200% 200%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: inherit;
+        }
+        .glow-border:focus-within::after {
+            opacity: 0.4;
+            animation: moveGradient 4s linear infinite;
+        }
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        .live-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg">
+<!-- Header Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm">
+<div class="flex justify-between items-center px-8 py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg-mobile md:text-headline-md tracking-tighter text-secondary">
+                CYBER_SHIELD
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-lg text-body-lg" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-lg text-body-lg" href="#">Experience</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-lg text-body-lg" href="#">Certifications</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-body-lg text-body-lg" href="#">Stack</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold active:scale-95 transition-transform">Get in Touch</button>
+</div>
+<!-- Mobile Menu Icon (Simulated) -->
+<div class="md:hidden">
+<span class="material-symbols-outlined text-secondary">menu</span>
+</div>
+</div>
+</nav>
+<!-- Global Background Shader -->
+
+<main class="pt-32 pb-stack-xl max-w-container-max mx-auto px-margin-mobile md:px-stack-lg">
+<!-- Hero Section -->
+<section class="mb-stack-lg animate-fade-in">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-stack-sm text-secondary">
+                        Let's Secure the Future Together.
+                    </h1>
+<p class="text-on-surface-variant max-w-2xl font-body-lg text-body-lg">
+                        Seeking high-impact security audits, specialized software development, or strategic technical leadership? Whether you're a startup or an enterprise, let's explore how we can elevate your systems.
+                    </p>
+</div>
+<div class="md:col-span-4 flex items-end justify-end">
+<!-- Availability Status -->
+<div class="glass-panel p-6 rounded-xl flex items-center gap-4 w-full md:w-auto">
+<div class="relative flex h-3 w-3">
+<span class="live-pulse absolute inline-flex h-full w-full rounded-full bg-secondary-fixed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary-fixed"></span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary-fixed mb-1 uppercase tracking-widest">Live Status</p>
+<p class="font-body-sm text-body-sm text-on-surface">Available for projects Q1 2025</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left: Contact Cards & Map -->
+<div class="lg:col-span-5 space-y-stack-md order-2 lg:order-1">
+<!-- Contact Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Email -->
+<div class="glass-panel p-5 rounded-xl group relative overflow-hidden">
+<span class="material-symbols-outlined text-primary mb-3">alternate_email</span>
+<h3 class="font-headline-md text-body-lg text-secondary mb-1">Email</h3>
+<p class="text-on-surface-variant text-body-sm mb-4 truncate">contact@cybershield.dev</p>
+<button class="w-full py-2 bg-white/5 hover:bg-white/10 rounded-lg text-label-caps font-label-caps transition-all flex items-center justify-center gap-2" onclick="copyEmail(this)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copy to Clipboard</span>
+</button>
+</div>
+<!-- LinkedIn -->
+<a class="glass-panel p-5 rounded-xl group block" href="#">
+<span class="material-symbols-outlined text-primary mb-3">share</span>
+<h3 class="font-headline-md text-body-lg text-secondary mb-1">LinkedIn</h3>
+<p class="text-on-surface-variant text-body-sm mb-4">/in/cyber-professional</p>
+<div class="w-full py-2 bg-white/5 hover:bg-white/10 rounded-lg text-label-caps font-label-caps transition-all flex items-center justify-center gap-2">
+<span>Connect</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</div>
+</a>
+<!-- WhatsApp -->
+<a class="glass-panel p-5 rounded-xl group block" href="#">
+<span class="material-symbols-outlined text-primary mb-3">chat_bubble</span>
+<h3 class="font-headline-md text-body-lg text-secondary mb-1">WhatsApp</h3>
+<p class="text-on-surface-variant text-body-sm mb-4">Fastest Response</p>
+<div class="w-full py-2 bg-white/5 hover:bg-white/10 rounded-lg text-label-caps font-label-caps transition-all flex items-center justify-center gap-2">
+<span>Chat Now</span>
+</div>
+</a>
+<!-- GitHub -->
+<a class="glass-panel p-5 rounded-xl group block" href="#">
+<span class="material-symbols-outlined text-primary mb-3">terminal</span>
+<h3 class="font-headline-md text-body-lg text-secondary mb-1">GitHub</h3>
+<p class="text-on-surface-variant text-body-sm mb-4">View Repositories</p>
+<div class="w-full py-2 bg-white/5 hover:bg-white/10 rounded-lg text-label-caps font-label-caps transition-all flex items-center justify-center gap-2">
+<span>Explore Code</span>
+</div>
+</a>
+</div>
+<!-- Interactive Map Placeholder -->
+<div class="glass-panel rounded-xl overflow-hidden aspect-video relative">
+<div class="absolute inset-0 z-0" data-alt="A futuristic, dark-themed geographic map visualization of New York City. The city layout is rendered with glowing cyan circuit lines and deep royal blue gradients, with pulsing purple dots indicating active node connections. The style is a sleek, minimalist tech-dashboard aesthetic with high contrast and subtle atmospheric light effects." data-location="New York City" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBuGlGkhArWK3AZNRtZLjkqgxJcnEc5urBv6wanPp8oOpX5D_QSAVhdQxbl_oqkcGZ756DQ7zg5-ARlfPzxipUtCG81GwzGXB0Y3Lzv32eKciSziWpgYaFZXNzfJ8pRlwqGswDdM9kXeeD-oTzstEiHqm8FKiD3vLEOAFKIR_o0ogTQkKzZFJcP782SVCoLK71P5Rw_I3j28XulzYmB5tAl3bn6w8cDu7XYG_7r8-sb4n0Z93MkzUDfJ9D95svyOsfbgoYtZ5VOIwkU')"></div>
+<div class="absolute bottom-4 left-4 bg-surface-dim/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10 z-10">
+<p class="text-label-caps font-label-caps text-secondary-fixed">Global Reach / NY HQ</p>
+</div>
+</div>
+</div>
+<!-- Right: Contact Form -->
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="glass-panel p-8 md:p-12 rounded-2xl">
+<form class="space-y-6" id="contact-form">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glow-border">
+<label class="block text-label-caps font-label-caps text-on-surface-variant mb-2 uppercase">Full Name</label>
+<input class="w-full bg-surface-container-low border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-0 focus:border-white/30 transition-all outline-none" placeholder="John Doe" type="text"/>
+</div>
+<div class="glow-border">
+<label class="block text-label-caps font-label-caps text-on-surface-variant mb-2 uppercase">Email Address</label>
+<input class="w-full bg-surface-container-low border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-0 focus:border-white/30 transition-all outline-none" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="glow-border">
+<label class="block text-label-caps font-label-caps text-on-surface-variant mb-2 uppercase">Inquiry Type</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-white/10 rounded-lg px-4 py-3 text-on-surface appearance-none focus:ring-0 focus:border-white/30 outline-none">
+<option>Security Audit</option>
+<option>Software Development</option>
+<option>ICT Strategy</option>
+<option>Speaking/Training</option>
+<option>Other</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+<div class="glow-border">
+<label class="block text-label-caps font-label-caps text-on-surface-variant mb-2 uppercase">Your Message</label>
+<textarea class="w-full bg-surface-container-low border-white/10 rounded-lg px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-0 focus:border-white/30 transition-all outline-none resize-none" placeholder="Tell me about your project or security needs..." rows="6"></textarea>
+</div>
+<div class="flex items-center justify-between gap-4 pt-4">
+<p class="text-body-sm text-on-surface-variant max-w-[200px]">
+                                Your data is encrypted and handled securely.
+                            </p>
+<button class="magnetic-button px-10 py-4 rounded-full font-bold font-headline-md tracking-tight active:scale-95 flex items-center gap-3" id="submit-btn" type="submit">
+<span>Send Message</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-stack-lg mt-stack-xl border-t border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-stack-lg max-w-container-max mx-auto gap-stack-md">
+<div class="font-display-lg text-headline-md text-secondary">
+                CYBER_SHIELD
+            </div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps uppercase" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps uppercase" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps uppercase" href="#">Security Whitepapers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps uppercase" href="#">Privacy Policy</a>
+</div>
+<p class="text-on-surface-variant font-label-caps text-label-caps">
+                © 2024 Professional Engineering Portfolio. Secured by Design.
+            </p>
+</div>
+</footer>
+<script>
+        // Magnetic Button Effect
+        const button = document.getElementById('submit-btn');
+        if (button) {
+            button.addEventListener('mousemove', (e) => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                button.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = `translate(0, 0)`;
+            });
+        }
+
+        // Copy Email Function
+        function copyEmail(btn) {
+            const email = "contact@cybershield.dev";
+            navigator.clipboard.writeText(email).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span><span>Copied!</span>';
+                btn.classList.add('bg-secondary-fixed/20');
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('bg-secondary-fixed/20');
+                }, 2000);
+            });
+        }
+
+        // Form Submit Simulation
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.innerHTML = '<span>Processing...</span>';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = '<span>Message Sent!</span><span class="material-symbols-outlined">check_circle</span>';
+                btn.classList.add('opacity-80');
+            }, 1500);
+        });
+
+        // Atmospheric Micro-interaction for inputs
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

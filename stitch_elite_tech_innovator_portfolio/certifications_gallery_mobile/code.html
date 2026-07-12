@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Credentials &amp; Milestones | Nexus.Core</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#343946",
+                    "primary-container": "#002366",
+                    "surface-variant": "#2f3542",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "inverse-primary": "#435b9f",
+                    "tertiary-fixed": "#e9ddff",
+                    "on-primary-fixed": "#00174a",
+                    "on-tertiary-container": "#9f77ff",
+                    "secondary": "#ffffff",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "on-background": "#dde2f3",
+                    "surface": "#0e131f",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "outline-variant": "#444650",
+                    "surface-container": "#1a202c",
+                    "secondary-container": "#00fbfb",
+                    "on-tertiary": "#3c0091",
+                    "on-primary-container": "#758dd5",
+                    "inverse-surface": "#dde2f3",
+                    "tertiary": "#d0bcff",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#161c28",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "on-secondary-fixed": "#002020",
+                    "outline": "#8e909c",
+                    "surface-tint": "#b3c5ff",
+                    "surface-container-lowest": "#080e1a",
+                    "surface-container-highest": "#2f3542",
+                    "primary-fixed": "#dbe1ff",
+                    "error-container": "#93000a",
+                    "primary": "#b3c5ff",
+                    "on-secondary-container": "#007070",
+                    "on-surface": "#dde2f3",
+                    "surface-dim": "#0e131f",
+                    "tertiary-container": "#32007d",
+                    "surface-container-high": "#242a36",
+                    "on-primary-fixed-variant": "#2a4386",
+                    "inverse-on-surface": "#2b303d",
+                    "on-secondary": "#003737",
+                    "secondary-fixed-dim": "#00dddd",
+                    "background": "#0e131f",
+                    "secondary-fixed": "#00fbfb",
+                    "on-error-container": "#ffdad6",
+                    "on-primary": "#0d2c6e",
+                    "on-surface-variant": "#c5c6d2",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-lg": "64px",
+                    "stack-md": "24px",
+                    "container-max": "1280px",
+                    "stack-xl": "120px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Space Grotesk"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Geist"],
+                    "mono-code": ["Geist"],
+                    "display-lg": ["Space Grotesk"],
+                    "display-lg-mobile": ["Space Grotesk"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "mono-code": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #030712;
+            color: #dde2f3;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:active {
+            transform: scale(0.98);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .glow-effect {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(179, 197, 255, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .magnetic-button {
+            background: linear-gradient(135deg, #b3c5ff 0%, #d0bcff 100%);
+            color: #0d2c6e;
+            font-weight: 600;
+            transition: transform 0.2s ease-out;
+        }
+
+        .verify-stroke {
+            border: 1px solid rgba(0, 251, 251, 0.3);
+        }
+
+        .verify-stroke:hover {
+            background: rgba(0, 251, 251, 0.1);
+            border-color: #00fbfb;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="overflow-x-hidden font-body-lg">
+<!-- TopNavBar (Shared Component Strategy) -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+<div class="flex justify-between items-center px-margin-mobile py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-md font-bold tracking-tighter text-primary">Nexus.Core</div>
+<button class="material-symbols-outlined text-on-surface" id="menu-toggle">menu</button>
+</div>
+</header>
+<!-- Background Atmospheric Blurs -->
+<div class="fixed inset-0 overflow-hidden -z-10">
+<div class="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] rounded-full bg-primary/10 blur-[120px]"></div>
+<div class="absolute top-[40%] -right-[20%] w-[50%] h-[50%] rounded-full bg-tertiary/5 blur-[100px]"></div>
+</div>
+<main class="pt-24 pb-stack-lg">
+<!-- Headline Section -->
+<section class="px-margin-mobile mb-stack-md">
+<h1 class="font-display-lg-mobile text-display-lg-mobile mb-2">Credentials &amp; <span class="text-primary">Milestones</span></h1>
+<p class="text-on-surface-variant font-body-sm text-body-sm leading-relaxed max-w-sm">
+                A formal record of technical mastery, specialized cybersecurity validations, and high-impact engineering deliveries.
+            </p>
+</section>
+<!-- Stats Grid 2x2 -->
+<section class="px-margin-mobile grid grid-cols-2 gap-4 mb-stack-md">
+<div class="glass-card p-5 rounded-xl flex flex-col items-center text-center">
+<span class="font-display-lg-mobile text-headline-md text-secondary">24</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">CERTIFICATIONS</span>
+</div>
+<div class="glass-card p-5 rounded-xl flex flex-col items-center text-center">
+<span class="font-display-lg-mobile text-headline-md text-primary">12</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">CORE PROJECTS</span>
+</div>
+<div class="glass-card p-5 rounded-xl flex flex-col items-center text-center">
+<span class="font-display-lg-mobile text-headline-md text-on-tertiary-container">08</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">SECURITY AUDITS</span>
+</div>
+<div class="glass-card p-5 rounded-xl flex flex-col items-center text-center">
+<span class="font-display-lg-mobile text-headline-md text-secondary-fixed">05</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">AWS BADGES</span>
+</div>
+</section>
+<!-- Horizontally Scrollable Domain Filters -->
+<section class="mb-stack-md">
+<div class="flex overflow-x-auto hide-scrollbar px-margin-mobile gap-3 pb-2">
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-primary text-on-primary font-label-caps text-label-caps">ALL DOMAINS</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-caps text-label-caps">CYBERSECURITY</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-caps text-label-caps">CLOUD ARCHITECTURE</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-caps text-label-caps">DEVOPS</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-caps text-label-caps">AI/ML</button>
+</div>
+</section>
+<!-- Certifications Stack -->
+<section class="px-margin-mobile flex flex-col gap-4">
+<!-- Certification Card 1 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col">
+<div class="relative h-48 w-full">
+<div class="bg-cover bg-center w-full h-full grayscale-[0.5] contrast-[1.1]" data-alt="A macro close-up of a futuristic digital certificate with glowing blue circuit lines and crystalline textures. The aesthetic is clean and professional, using a deep navy and electric cyan color palette to convey high-security credentials in a modern tech-luxury style. Soft atmospheric light illuminates the certificate's surface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBh74IsndxglSx0LS1RcKi6R4lA0UEju2T3LjeajMUDpeptdc9PybEAG0b4gG121Q7nWCbmYiz1OBUeDFBpmqN4so3zliJsNG9cvVw4AjU_MRRwrmrCEGwOlAKFZyI9JswMi3za6394uQFYU_CRKbdAzMVV0Om5S9fqUgLDyJliAJyKnLb5-hrL_6L6mJKxC0_Furlgq3ANogzzc2Gt8pZGwwXry-5I2kGt4Cb9ogRaEbDXgLMnG6h9RaKfK3e7US6XxtKiEqUM96C4')"></div>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="font-label-caps text-label-caps text-secondary-fixed">VALID</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">verified</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">OFFENSIVE SECURITY</span>
+</div>
+<h3 class="font-headline-md text-body-lg text-on-surface mb-4">OSCP: Offensive Security Certified Professional</h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-white/5 rounded text-[10px] font-mono-code text-on-surface-variant">PENETRATION TESTING</span>
+<span class="px-3 py-1 bg-white/5 rounded text-[10px] font-mono-code text-on-surface-variant">LINUX EXPLOITATION</span>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-4 rounded-lg verify-stroke text-secondary-fixed font-label-caps text-label-caps transition-all active:scale-95">
+                        VERIFY CERTIFICATE <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Certification Card 2 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col">
+<div class="relative h-48 w-full">
+<div class="bg-cover bg-center w-full h-full grayscale-[0.5] contrast-[1.1]" data-alt="A sleek minimalist abstract representation of cloud architecture clusters glowing in purple and white against a dark charcoal background. The image is rendered with a shallow depth of field, highlighting crisp geometric shapes and glass-like reflections, echoing the premium developer-luxury aesthetic of the Nexus Core design system." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGDwO6qsSjbiFSXchzZ3HmzBbmt4ZaaSthzHEekoMilApPOr_ovqQMe7OtkTSy0bptktfugqQJJZtB1wRrJ0qcZeZSKr948iRkICKI9CszPOi__GD2M8QlKPfA0SE1I674Wur9xMcOC5QKL1-v7nDWiN1puBV6rNC2EHsrfSCtXQ9RXcIq35ewQNsgWGy8Rjjb4v1enhbKT2uAsN_3PlU-wYskwMdWf80O2Ns3uBiRMLhgHzbxdzuCnlWrPOo_EzElAFo_MAVZoAbQ')"></div>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="font-label-caps text-label-caps text-secondary-fixed">VALID</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-size: 20px;">cloud_done</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">AMAZON WEB SERVICES</span>
+</div>
+<h3 class="font-headline-md text-body-lg text-on-surface mb-4">AWS Certified Solutions Architect – Professional</h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-white/5 rounded text-[10px] font-mono-code text-on-surface-variant">SERVERLESS ARCHITECTURE</span>
+<span class="px-3 py-1 bg-white/5 rounded text-[10px] font-mono-code text-on-surface-variant">ENTERPRISE CLOUD</span>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-4 rounded-lg verify-stroke text-secondary-fixed font-label-caps text-label-caps transition-all active:scale-95">
+                        VERIFY CERTIFICATE <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Certification Card 3 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">security</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">ISC²</span>
+</div>
+<h3 class="font-headline-md text-body-lg text-on-surface mb-4">CISSP: Certified Information Systems Security Professional</h3>
+<p class="text-on-surface-variant text-body-sm font-body-sm mb-6">Credential focusing on security leadership and technical management across eight security domains.</p>
+<button class="w-full flex items-center justify-center gap-2 py-4 rounded-lg verify-stroke text-secondary-fixed font-label-caps text-label-caps transition-all active:scale-95">
+                        VERIFY CERTIFICATE <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Professional Achievements List -->
+<section class="px-margin-mobile mt-stack-lg">
+<h2 class="font-display-lg-mobile text-headline-md mb-stack-md text-on-surface">Key <span class="text-secondary-fixed">Milestones</span></h2>
+<div class="space-y-6">
+<div class="flex gap-4 items-start">
+<div class="w-12 h-12 rounded-lg bg-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">terminal</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-on-surface leading-tight">Lead Architect for Core-Alpha Infrastructure</h4>
+<p class="text-on-surface-variant text-body-sm mt-1">Successfully migrated legacy monolith to high-availability microservices for Global-X Partners.</p>
+<span class="text-[10px] font-label-caps text-primary mt-2 block">2023 ACHIEVEMENT</span>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-12 h-12 rounded-lg bg-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">shield</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-on-surface leading-tight">Zero-Vulnerability Audit Certification</h4>
+<p class="text-on-surface-variant text-body-sm mt-1">Conducted and passed full-stack security audit with no critical findings across 12 proprietary repos.</p>
+<span class="text-[10px] font-label-caps text-primary mt-2 block">2024 ACHIEVEMENT</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component Strategy) -->
+<footer class="w-full py-stack-lg bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col items-center px-margin-mobile max-w-container-max mx-auto gap-stack-md text-center">
+<div class="font-display-lg text-body-lg font-bold text-secondary">Nexus.Core</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-secondary text-label-caps font-label-caps" href="#">Security Policy</a>
+<a class="text-on-surface-variant hover:text-secondary text-label-caps font-label-caps" href="#">Technical Stack</a>
+<a class="text-on-surface-variant hover:text-secondary text-label-caps font-label-caps" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-secondary text-label-caps font-label-caps" href="#">LinkedIn</a>
+</div>
+<p class="text-on-surface-variant text-label-caps font-label-caps opacity-60">© 2024 Nexus.Core. Architecting Secure Digital Frontiers.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.borderColor = 'rgba(179, 197, 255, 0.4)';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+
+        // Magnetic hover simulation for active buttons (simplified for mobile tap)
+        document.querySelectorAll('.magnetic-button').forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            btn.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Background parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const blurs = document.querySelectorAll('div[class*="rounded-full"]');
+            blurs[0].style.transform = `translateY(${scrolled * 0.1}px)`;
+            blurs[1].style.transform = `translateY(${scrolled * -0.05}px)`;
+        });
+    </script>
+</body></html>
