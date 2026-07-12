@@ -36,11 +36,11 @@ function App() {
     }, []);
 
     return (
-        <div className="App flex flex-col min-h-screen relative">
+        <div className="App flex flex-col min-h-screen relative bg-transparent">
             <CyberOverlay />
             <Spotlight />
             <Navbar />
-            <div className="flex-grow">
+            <div className="flex-grow relative z-10">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/projects" element={<ProjectsShowcase />} />

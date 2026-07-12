@@ -2,62 +2,65 @@
 @config "../tailwind.config.js";
 
 :root.light {
-    --color-on-error: #690005;
-    --color-outline-variant: #c5c6d2;
-    --color-on-error-container: #ffdad6;
-    --color-tertiary-fixed-dim: #d0bcff;
-    --color-surface-container-high: #e1e4f5;
-    --color-on-primary: #ffffff;
-    --color-surface-container-low: #f2f3ff;
-    --color-tertiary-fixed: #e9ddff;
-    --color-error-container: #93000a;
-    --color-error: #ffb4ab;
-    --color-on-surface: #00174a;
-    --color-surface-bright: #faf8ff;
-    --color-on-tertiary-container: #32007d;
-    --color-secondary-container: #00fbfb;
-    --color-primary-fixed-dim: #b3c5ff;
-    --color-surface-container-highest: #2f3542;
-    --color-on-background: #00174a;
-    --color-on-tertiary-fixed: #23005c;
-    --color-surface-dim: #d2d9f4;
-    --color-primary-container: #dbe1ff;
-    --color-secondary-fixed-dim: #00dddd;
-    --color-on-secondary-container: #007070;
-    --color-on-tertiary-fixed-variant: #5516be;
-    --color-tertiary: #32007d;
-    --color-outline: #757780;
-    --color-on-secondary-fixed-variant: #004f4f;
-    --color-on-surface-variant: #444650;
-    --color-secondary-fixed: #00fbfb;
-    --color-secondary: #004f4f;
-    --color-on-secondary: #ffffff;
-    --color-inverse-surface: #dde2f3;
-    --color-background: #faf8ff;
-    --color-primary: #1e40af;
-    --color-surface-container: #f2f3ff;
-    --color-on-primary-fixed-variant: #2a4386;
-    --color-on-primary-fixed: #00174a;
-    --color-on-secondary-fixed: #002020;
-    --color-surface-variant: #e1e2ec;
-    --color-surface-tint: #b3c5ff;
-    --color-surface-container-lowest: #ffffff;
-    --color-primary-fixed: #dbe1ff;
-    --color-inverse-on-surface: #2b303d;
-    --color-surface: #faf8ff;
-    --color-tertiary-container: #e9ddff;
-    --color-on-primary-container: #002366;
-    --color-on-tertiary: #ffffff;
-    --color-inverse-primary: #b3c5ff;
-
-    --glass-bg: #ffffff;
-    --glass-bg-hover: #ffffff;
-    --glass-border: rgba(0, 23, 74, 0.08);
-    --glass-border-hover: rgba(0, 23, 74, 0.15);
-    --glass-shadow: 0 4px 24px -1px rgba(0, 23, 74, 0.05);
-    --glass-shadow-hover: 0 20px 40px -10px rgba(0, 23, 74, 0.1);
+    --color-background: #f8fafc;
+    --color-on-background: #0f172a;
     
-    --spotlight-bg: rgba(67, 91, 159, 0.05);
+    --color-surface: #ffffff;
+    --color-on-surface: #0f172a;
+    --color-surface-variant: #f1f5f9;
+    --color-on-surface-variant: #475569;
+    
+    --color-surface-container-low: #f8fafc;
+    --color-surface-container: #f1f5f9;
+    --color-surface-container-high: #e2e8f0;
+    --color-surface-container-highest: #cbd5e1;
+    
+    --color-outline: #94a3b8;
+    --color-outline-variant: #cbd5e1;
+
+    --color-primary: #1d4ed8;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #1d4ed8;
+    --color-on-primary-container: #ffffff;
+    
+    --color-secondary: #0f766e;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #0f766e;
+    --color-on-secondary-container: #ffffff;
+    
+    --color-secondary-fixed: #0f766e;
+    --color-on-secondary-fixed: #ffffff;
+    --color-secondary-fixed-dim: #0d9488;
+
+    --color-tertiary: #6d28d9;
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #6d28d9;
+    --color-on-tertiary-container: #ffffff;
+    
+    --color-tertiary-fixed: #6d28d9;
+    --color-tertiary-fixed-dim: #7c3aed;
+
+    --color-error: #b91c1c;
+    --color-on-error: #ffffff;
+    
+    --color-primary-fixed: #1d4ed8;
+    --color-primary-fixed-dim: #2563eb;
+    
+    --color-inverse-surface: #0f172a;
+    --color-inverse-on-surface: #f8fafc;
+    --color-inverse-primary: #93c5fd;
+
+    --cyan-glow: rgba(15, 118, 110, 0.15);
+    --purple-glow: rgba(109, 40, 217, 0.15);
+
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-bg-hover: rgba(255, 255, 255, 0.98);
+    --glass-border: rgba(15, 23, 42, 0.1);
+    --glass-border-hover: rgba(15, 23, 42, 0.25);
+    --glass-shadow: 0 4px 24px -1px rgba(15, 23, 42, 0.05);
+    --glass-shadow-hover: 0 20px 40px -10px rgba(15, 23, 42, 0.12);
+    
+    --spotlight-bg: rgba(29, 78, 216, 0.05);
 }
 
 :root.dark, :root {
@@ -145,16 +148,16 @@ body {
 
 .magnetic-button {
     transition: transform 0.2s ease-out;
-    background: linear-gradient(135deg, #00fbfb 0%, #d0bcff 100%);
+    background: linear-gradient(135deg, var(--color-secondary-container) 0%, var(--color-tertiary-container) 100%);
 }
 
 .ghost-button {
-    border: 1px solid #00fbfb;
+    border: 1px solid var(--color-secondary-fixed);
     transition: all 0.3s ease;
 }
 
 .ghost-button:hover {
-    background: rgba(0, 251, 251, 0.1);
+    background: var(--cyan-glow);
     backdrop-filter: blur(8px);
 }
 
@@ -222,12 +225,12 @@ body {
     background: linear-gradient(
         to bottom,
         transparent 50%,
-        rgba(0, 251, 251, 0.05) 51%,
+        var(--cyan-glow) 51%,
         transparent 51%
     );
     background-size: 100% 4px;
     pointer-events: none;
-    z-index: 9998;
+    z-index: 0;
     animation: scanlineScroll 10s linear infinite;
     opacity: 0.5;
 }
@@ -244,11 +247,11 @@ body {
     width: 100vw;
     height: 100vh;
     background-image: 
-        linear-gradient(rgba(0, 251, 251, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 251, 251, 0.03) 1px, transparent 1px);
+        linear-gradient(var(--cyan-glow) 1px, transparent 1px),
+        linear-gradient(90deg, var(--cyan-glow) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
-    z-index: 1;
+    z-index: 0;
 }
 
 .cyber-glitch {
