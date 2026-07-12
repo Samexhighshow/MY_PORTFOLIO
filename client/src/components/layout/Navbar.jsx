@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSound } from '../../context/SoundContext';
 
 export default function Navbar() {
     const { theme, toggleTheme } = useTheme();
+    const { isMuted, toggleMute, playHover, playClick } = useSound();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
 
@@ -40,6 +42,16 @@ export default function Navbar() {
                     <Link to="/contact" className="hidden md:block font-label-caps text-label-caps bg-primary text-on-primary px-6 py-2.5 rounded-full hover:scale-95 transition-transform">
                         Contact Me
                     </Link>
+                    <button 
+                        onClick={() => { toggleMute(); playClick(); }}
+                        onMouseEnter={playHover}
+                        className="p-2 rounded-full bg-white/5 border border-white/10 text-on-surface hover:bg-white/10 transition-colors"
+                        title={isMuted ? "Unmute sound effects" : "Mute sound effects"}
+                    >
+                        <span className="material-symbols-outlined text-[20px]">
+                            {isMuted ? 'volume_off' : 'volume_up'}
+                        </span>
+                    </button>
                     <span 
                         className="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" 
                         onClick={toggleTheme}

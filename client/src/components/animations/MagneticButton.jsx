@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useSound } from '../../context/SoundContext';
 
 export default function MagneticButton({ children, className = '', onClick, type = 'button' }) {
     const ref = useRef(null);
+    const { playHover, playClick } = useSound();
 
     const handleMouseMove = (e) => {
         if (!ref.current) return;
@@ -14,7 +16,16 @@ export default function MagneticButton({ children, className = '', onClick, type
 
     const handleMouseLeave = () => {
         if (!ref.current) return;
-        ref.current.style.transform = 'translate(0px, 0px)';
+        ref.current.style.transform = `translate(0px, 0px)`;
+    };
+
+    const handleMouseEnter = () => {
+        playHover();
+    };
+
+    const handleClick = (e) => {
+        playClick();
+        if (onClick) onClick(e);
     };
 
     return (
@@ -24,7 +35,8 @@ export default function MagneticButton({ children, className = '', onClick, type
             className={`magnetic-button ${className}`}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            onClick={onClick}
+            onMouseEnter={handleMouseEnter}
+            onClick={handleClick}
         >
             {children}
         </button>
