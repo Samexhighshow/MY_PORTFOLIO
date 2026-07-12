@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
@@ -8,6 +8,7 @@ import Spotlight from './components/animations/Spotlight';
 import CyberOverlay from './components/animations/CyberOverlay';
 import CyberCursor from './components/animations/CyberCursor';
 import PageTransition from './components/animations/PageTransition';
+import BootSequence from './components/animations/BootSequence';
 import SystemStatus from './components/layout/SystemStatus';
 import Terminal from './components/layout/Terminal';
 import useKonamiCode from './hooks/useKonamiCode';
@@ -21,6 +22,15 @@ import NotFound from './pages/NotFound';
 function App() {
     const location = useLocation();
     useKonamiCode(); // Activates global red-team mode via document.body
+    
+    const [isBooting, setIsBooting] = useState(() => {
+        return !sessionStorage.getItem('hasBooted');
+    });
+
+    const handleBootComplete = () => {
+        sessionStorage.setItem('hasBooted', 'true');
+        setIsBooting(false);
+    };
 
     // Scroll to top on route change
     useEffect(() => {
@@ -52,6 +62,10 @@ function App() {
 
     return (
         <div className="App flex flex-col min-h-screen relative bg-transparent cursor-none">
+            <AnimatePresence>
+                {isBooting && <BootSequence onComplete={handleBootComplete} />}
+            </AnimatePresence>
+            
             <CyberCursor />
             <Terminal />
             <SystemStatus />
