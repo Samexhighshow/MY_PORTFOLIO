@@ -68,7 +68,7 @@ export default function ParticleNetwork() {
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 251, 251, 0.5)';
+                ctx.fillStyle = 'rgba(0, 251, 251, 0.3)';
                 ctx.fill();
             }
         }
@@ -91,7 +91,7 @@ export default function ParticleNetwork() {
 
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 251, 251, ${1 - distance / connectionDistance})`;
+                        ctx.strokeStyle = `rgba(0, 251, 251, ${(1 - distance / connectionDistance) * 0.5})`;
                         ctx.lineWidth = 1;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
