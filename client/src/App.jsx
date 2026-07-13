@@ -22,6 +22,8 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import ProjectDetails from './pages/ProjectDetails';
+import About from './pages/About';
+import Resume from './pages/Resume';
 
 function App() {
     const location = useLocation();
@@ -93,6 +95,8 @@ function App() {
                         <Route path="/cybersecurity" element={<PageTransition><Cybersecurity /></PageTransition>} />
                         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
                         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+                        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+                        <Route path="/resume" element={<Resume />} />
                         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
                     </Routes>
                 </AnimatePresence>

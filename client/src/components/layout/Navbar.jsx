@@ -28,8 +28,11 @@ export default function Navbar() {
                     <NavLink to="/" end className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
                         Home
                     </NavLink>
-                    <NavLink to="/experience" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
+                    <NavLink to="/about" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
                         About
+                    </NavLink>
+                    <NavLink to="/experience" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
+                        Experience
                     </NavLink>
                     <NavLink to="/services" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
                         Services
@@ -42,6 +45,9 @@ export default function Navbar() {
                     </NavLink>
                     <NavLink to="/blog" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
                         Blog
+                    </NavLink>
+                    <NavLink to="/resume" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}>
+                        Resume
                     </NavLink>
                 </div>
                 <div className="flex items-center space-x-4 md:space-x-6">
@@ -86,8 +92,11 @@ export default function Navbar() {
                         <NavLink to="/" end className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
                             Home
                         </NavLink>
-                        <NavLink to="/experience" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
+                        <NavLink to="/about" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
                             About
+                        </NavLink>
+                        <NavLink to="/experience" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
+                            Experience
                         </NavLink>
                         <NavLink to="/services" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
                             Services
@@ -100,6 +109,9 @@ export default function Navbar() {
                         </NavLink>
                         <NavLink to="/blog" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
                             Blog
+                        </NavLink>
+                        <NavLink to="/resume" className={({ isActive }) => `font-label-caps text-label-caps transition-colors duration-300 ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-primary'}`}>
+                            Resume
                         </NavLink>
                         <div className="w-12 h-[1px] bg-outline-variant/30 my-2"></div>
                         <Link to="/contact" className="font-label-caps text-label-caps bg-primary text-on-primary px-8 py-3 rounded-full hover:scale-95 transition-transform w-3/4 text-center">
