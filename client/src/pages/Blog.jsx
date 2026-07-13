@@ -2,22 +2,57 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import DecryptText from '../components/animations/DecryptText';
 
+const staticBlogPosts = [
+    {
+        id: 1,
+        title: "Zero-Trust Architecture: Moving Beyond the VPN",
+        category: "Cybersecurity",
+        date: "2026-07-11",
+        excerpt: "Why traditional perimeter security is failing modern enterprise networks and how Zero-Trust principles mitigate lateral movement attacks.",
+        readTime: "5 min read",
+        author: "Maximus"
+    },
+    {
+        id: 2,
+        title: "Building Robust Student Management Systems",
+        category: "EdTech",
+        date: "2026-07-06",
+        excerpt: "A deep dive into the database design and API architecture required to handle thousands of concurrent student records without locking.",
+        readTime: "8 min read",
+        author: "Maximus"
+    },
+    {
+        id: 3,
+        title: "Securing React Applications: Common Pitfalls",
+        category: "Web Dev",
+        date: "2026-06-29",
+        excerpt: "An analysis of XSS vulnerabilities in modern frontend frameworks and how to securely handle JWTs in local storage vs HTTP-only cookies.",
+        readTime: "6 min read",
+        author: "Maximus"
+    },
+    {
+        id: 4,
+        title: "Network Administration in the Cloud Era",
+        category: "ICT Mgmt",
+        date: "2026-06-13",
+        excerpt: "Strategies for maintaining visibility and control when your infrastructure spans across AWS, Azure, and legacy on-premise hardware.",
+        readTime: "10 min read",
+        author: "Maximus"
+    }
+];
+
 export default function Blog() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Fetch from PHP API
-        // Using relative path to work across different hosts if deployed
-        fetch('http://localhost/MY_PORTFOLIO/api/blog/')
-            .then(res => res.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    setPosts(data.data);
-                }
-            })
-            .catch(err => console.error("Error fetching blog posts:", err))
-            .finally(() => setLoading(false));
+        // Simulating network delay to keep loading animations
+        const timer = setTimeout(() => {
+            setPosts(staticBlogPosts);
+            setLoading(false);
+        }, 300);
+
+        return () => clearTimeout(timer);
     }, []);
 
     return (
