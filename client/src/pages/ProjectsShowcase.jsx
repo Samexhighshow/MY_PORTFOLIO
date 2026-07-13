@@ -202,22 +202,24 @@ export default function ProjectsShowcase() {
                         </div>
                     </motion.div>
 
-                    {/* Horizontal Filter Bar */}
+                    {/* Horizontal Filter Bar (Mobile) */}
                     <motion.div 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="lg:hidden flex flex-wrap gap-4 items-center bg-surface-container-high/50 p-2 rounded-2xl border border-white/5 backdrop-blur-md w-fit"
+                        className="lg:hidden sticky top-24 z-40 w-full overflow-hidden mb-8"
                     >
-                        {filters.map(filter => (
-                            <button 
-                                key={filter.name}
-                                onClick={() => setActiveFilter(filter.name)}
-                                className={`px-6 py-2 rounded-xl font-label-caps text-label-caps transition-all ${activeFilter === filter.name ? 'bg-primary text-on-primary' : 'text-on-surface-variant hover:bg-white/5'}`}
-                            >
-                                {filter.name}
-                            </button>
-                        ))}
+                        <div className="flex overflow-x-auto no-scrollbar gap-2 items-center bg-surface-container-high/90 p-2 rounded-2xl border border-white/10 backdrop-blur-xl w-full shadow-lg">
+                            {filters.map(filter => (
+                                <button 
+                                    key={filter.name}
+                                    onClick={() => setActiveFilter(filter.name)}
+                                    className={`px-5 py-2 shrink-0 rounded-xl font-label-caps text-label-caps transition-all ${activeFilter === filter.name ? 'bg-primary text-on-primary shadow-md' : 'text-on-surface-variant hover:bg-white/5'}`}
+                                >
+                                    {filter.name}
+                                </button>
+                            ))}
+                        </div>
                     </motion.div>
                 </section>
 
