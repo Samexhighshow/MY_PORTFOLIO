@@ -15,7 +15,7 @@ export default function Hero() {
     const textY = useTransform(scrollY, [0, 1000], [0, -100]);
     const shapeY = useTransform(scrollY, [0, 1000], [0, 150]);
     return (
-        <section className="relative h-screen min-h-[800px] flex items-center overflow-hidden">
+        <section className="relative w-full pt-40 pb-20 lg:pt-0 lg:pb-0 lg:h-screen lg:min-h-[800px] flex items-center overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(67,91,159,0.08)_0%,transparent_60%)] pointer-events-none -z-10"></div>
             
             <div className="relative z-20 w-full max-w-container-max mx-auto px-margin-mobile md:px-stack-lg grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">

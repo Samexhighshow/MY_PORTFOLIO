@@ -63,11 +63,11 @@ export default {
                 "full": "0.75rem"
             },
             "spacing": {
-                "stack-xl": "120px",
+                "stack-xl": "var(--spacing-stack-xl)",
                 "stack-md": "24px",
                 "stack-sm": "8px",
                 "container-max": "1280px",
-                "stack-lg": "64px",
+                "stack-lg": "var(--spacing-stack-lg)",
                 "margin-mobile": "20px",
                 "gutter": "24px"
             },
