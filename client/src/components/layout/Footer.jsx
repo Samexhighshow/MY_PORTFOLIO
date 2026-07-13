@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+    const navigate = useNavigate();
+
+    const triggerCommandPalette = () => {
+        window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', ctrlKey: true }));
+    };
+
     return (
         <footer className="bg-transparent backdrop-blur-lg border-t border-white/10 relative z-10 px-margin-mobile md:px-stack-lg">
             <div className="max-w-container-max mx-auto pt-stack-xl pb-8 md:pb-12 grid grid-cols-1 md:grid-cols-4 gap-gutter">
@@ -34,9 +41,27 @@ export default function Footer() {
             <div className="max-w-container-max mx-auto pt-8 pb-32 md:pb-40 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
                 <div className="font-body-sm text-body-sm text-on-surface-variant">© {new Date().getFullYear()} MAXIMUS. Securely Encrypted.</div>
                 <div className="flex gap-6">
-                    <span className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">hub</span>
-                    <span className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">terminal</span>
-                    <span className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">alternate_email</span>
+                    <span 
+                        className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                        title="GitHub / Network Hub"
+                        onClick={() => window.open('https://github.com', '_blank')}
+                    >
+                        hub
+                    </span>
+                    <span 
+                        className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                        title="Open OS Command Palette"
+                        onClick={triggerCommandPalette}
+                    >
+                        terminal
+                    </span>
+                    <span 
+                        className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer"
+                        title="Contact MAXIMUS"
+                        onClick={() => navigate('/contact')}
+                    >
+                        alternate_email
+                    </span>
                 </div>
             </div>
         </footer>
