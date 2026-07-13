@@ -48,19 +48,19 @@ function ProjectCard3D({ project, onSelectProject }) {
             <div className="p-8 flex flex-col flex-grow bg-white/5 backdrop-blur-xl border-t border-white/10">
                 <h2 className="font-headline-md text-headline-md text-secondary mb-4">{project.title}</h2>
                 <div className="mb-6 space-y-3">
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">
-                        <span className="text-error font-bold uppercase tracking-wider">Problem: </span> 
-                        {project.problem}
+                    <p className="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+                        <span className="text-error font-bold uppercase tracking-wider">Business Problem: </span> 
+                        {project.businessProblem}
                     </p>
-                    <p className="font-body-sm text-body-sm text-on-surface">
-                        <span className="text-secondary-fixed font-bold uppercase tracking-wider">Solution: </span> 
-                        {project.solution}
+                    <p className="font-body-sm text-body-sm text-on-surface line-clamp-3">
+                        <span className="text-secondary-fixed font-bold uppercase tracking-wider">Outcome: </span> 
+                        {project.outcome}
                     </p>
                 </div>
                 <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tech.map((t, idx) => (
+                    {project.technologiesSelected?.map((t, idx) => (
                         <span key={idx} className="bg-secondary-fixed/5 border border-secondary-fixed/20 px-3 py-1 rounded-lg font-mono-code text-mono-code text-secondary-fixed">
-                            {t}
+                            {t.name}
                         </span>
                     ))}
                 </div>
