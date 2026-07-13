@@ -1,7 +1,8 @@
 import React, { useRef, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import DecryptText from '../components/animations/DecryptText';
-import ProjectModal from '../components/animations/ProjectModal';
+import { projectsData } from '../data/projects';
 
 function ProjectCard3D({ project, onSelectProject }) {
     const cardRef = useRef(null);
@@ -63,13 +64,13 @@ function ProjectCard3D({ project, onSelectProject }) {
                         </span>
                     ))}
                 </div>
-                <div className="mt-auto flex items-center justify-between">
-                    <button onClick={() => onSelectProject(project)} className="bg-gradient-to-r from-secondary-container to-tertiary-container text-surface px-8 py-3 rounded-xl font-label-caps text-label-caps hover:scale-105 transition-transform">
+                <div className="mt-auto flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+                    <button onClick={() => onSelectProject(project)} className="w-full sm:w-auto bg-gradient-to-r from-secondary-container to-tertiary-container text-surface px-8 py-3 rounded-xl font-label-caps text-label-caps hover:scale-105 transition-transform flex justify-center items-center">
                         View Case Study
                     </button>
-                    <div className="flex gap-4">
-                        {project.url && project.url !== '#' && <a className="text-on-surface-variant hover:text-primary transition-colors" href={project.url} target="_blank" rel="noreferrer"><span className="material-symbols-outlined">open_in_new</span></a>}
-                        {project.github && project.github !== '#' && <a className="text-on-surface-variant hover:text-primary transition-colors" href={project.github} target="_blank" rel="noreferrer"><span className="material-symbols-outlined">code</span></a>}
+                    <div className="flex gap-4 items-center justify-center sm:justify-end w-full sm:w-auto">
+                        {project.url && project.url !== '#' && <a className="text-on-surface-variant hover:text-primary transition-colors flex items-center" href={project.url} target="_blank" rel="noreferrer" title="Live Demo"><span className="material-symbols-outlined text-[24px]">open_in_new</span></a>}
+                        {project.github && project.github !== '#' && <a className="text-on-surface-variant hover:text-primary transition-colors flex items-center" href={project.github} target="_blank" rel="noreferrer" title="GitHub Repository"><span className="material-symbols-outlined text-[24px]">code</span></a>}
                     </div>
                 </div>
             </div>
@@ -77,76 +78,9 @@ function ProjectCard3D({ project, onSelectProject }) {
     );
 }
 
-const projectsData = [
-    {
-        id: 1,
-        title: "Enterprise Student Management System",
-        category: "EdTech & Full Stack",
-        overview: "A comprehensive digital infrastructure designed to manage student records, automate grading, track attendance, and facilitate communication between administrators, teachers, and students.",
-        problem: "Traditional schools rely on fragmented manual systems for grading, attendance, and record-keeping, leading to data loss, inefficiencies, and poor communication.",
-        solution: "Engineered a centralized, role-based cloud platform with secure authentication, automated report generation, and real-time dashboard analytics.",
-        features: ["Role-based Access Control (Admin, Teacher, Student)", "Automated Grading & Report Generation", "Real-time Attendance Tracking", "Secure Parent Portal", "RESTful API Integration"],
-        tech: ["React.js", "PHP", "MySQL", "TailwindCSS", "JWT Auth"],
-        challenges: "Designing a database schema that efficiently handles thousands of concurrent student records without slowing down complex grading queries.",
-        lessons: "Learned advanced MySQL indexing techniques and how to structure deeply nested relational data for rapid API retrieval.",
-        results: "Successfully digitized administrative workflows, providing real-time visibility into student performance and streamlining data entry.",
-        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-        url: "#",
-        github: "#"
-    },
-    {
-        id: 2,
-        title: "Brilliant Pathways International Schools",
-        category: "Web Development",
-        overview: "A modern, highly-responsive official web presence built for an international educational institution to showcase their facilities, curriculum, and admissions process.",
-        problem: "The school lacked a digital footprint, making it difficult for prospective parents to find reliable information or apply online.",
-        solution: "Designed and developed a premium, fast-loading website with an integrated CMS for the school administration to update news and events.",
-        features: ["Dynamic Content Management", "Online Admissions Portal", "Interactive Campus Tour", "SEO Optimized Architecture", "Mobile-First Design"],
-        tech: ["React.js", "Framer Motion", "PHP", "TailwindCSS"],
-        challenges: "Ensuring the website loaded instantly across varying network speeds, typical for prospective parents browsing on mobile devices.",
-        lessons: "Mastered advanced asset optimization, lazy loading techniques, and efficient caching strategies.",
-        results: "Established a dominant digital presence leading to significantly increased online enrollment inquiries.",
-        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800",
-        url: "#",
-        github: "#"
-    },
-    {
-        id: 3,
-        title: "NewsPort Digital",
-        category: "Web Development",
-        overview: "A scalable digital journalism platform designed to handle high-traffic news delivery with categorizations, live updates, and secure author dashboards.",
-        problem: "Existing off-the-shelf CMS solutions were too bloated and slow for delivering breaking news efficiently.",
-        solution: "Built a custom, lightweight publishing engine with a focus on core web vitals and rapid content delivery.",
-        features: ["Custom Author Dashboard", "Category Management", "Live Search", "Rich Text Editor Integration", "Analytics Tracking"],
-        tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
-        challenges: "Sanitizing user input from the rich text editor to prevent XSS attacks while maintaining complex HTML formatting.",
-        lessons: "Deepened understanding of web security, input sanitization, and parameterized database queries.",
-        results: "Delivered a platform capable of handling concurrent readers with zero database bottlenecks.",
-        image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
-        url: "#",
-        github: "#"
-    },
-    {
-        id: 4,
-        title: "MAXIMUS OS: Interactive Portfolio",
-        category: "Software Engineering",
-        overview: "A highly immersive, interactive portfolio designed to mimic a futuristic operating system, combining cutting-edge frontend engineering with cyberpunk aesthetics.",
-        problem: "Traditional portfolios fail to demonstrate true engineering capability, feeling like static brochures rather than dynamic software.",
-        solution: "Architected a 'living' web application with custom cursor interactions, simulated terminal sequences, dynamic soundscapes, and integrated state management.",
-        features: ["Simulated Boot Sequence", "HTML5 Canvas Node Network", "Web Audio API Sound Engine", "Konami Code Easter Egg", "Smooth Page Transitions"],
-        tech: ["React.js", "Framer Motion", "Lenis Scroll", "TailwindCSS"],
-        challenges: "Managing complex global state and ensuring that heavy canvas animations did not cause frame drops on low-end devices.",
-        lessons: "Refined skills in React performance optimization, `requestAnimationFrame`, and memoization techniques.",
-        results: "Created a unique digital footprint that instantly communicates technical proficiency and design aesthetics to visitors.",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
-        url: "#",
-        github: "#"
-    }
-];
-
 export default function ProjectsShowcase() {
+    const navigate = useNavigate();
     const [activeFilter, setActiveFilter] = useState('All');
-    const [selectedProject, setSelectedProject] = useState(null);
     
     const filteredProjects = useMemo(() => {
         if (activeFilter === 'All') return projectsData;
@@ -159,6 +93,10 @@ export default function ProjectsShowcase() {
         { name: "EdTech & Full Stack", icon: "school" },
         { name: "Software Engineering", icon: "terminal" }
     ];
+
+    const handleSelectProject = (project) => {
+        navigate(`/projects/${project.id}`);
+    };
 
     return (
         <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-stack-lg pt-32 pb-stack-xl flex flex-col lg:flex-row gap-stack-lg relative">
@@ -234,14 +172,11 @@ export default function ProjectsShowcase() {
                                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                                 className="h-full"
                             >
-                                <ProjectCard3D project={project} onSelectProject={setSelectedProject} />
+                                <ProjectCard3D project={project} onSelectProject={handleSelectProject} />
                             </motion.div>
                         ))}
                 </section>
             </main>
-            
-            {/* Project Modal */}
-            <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
         </div>
     );
 }

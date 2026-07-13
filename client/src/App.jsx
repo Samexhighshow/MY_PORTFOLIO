@@ -21,6 +21,7 @@ import Cybersecurity from './pages/Cybersecurity';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import ProjectDetails from './pages/ProjectDetails';
 
 function App() {
     const location = useLocation();
@@ -86,6 +87,7 @@ function App() {
                     <Routes location={location} key={location.pathname}>
                         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
                         <Route path="/projects" element={<PageTransition><ProjectsShowcase /></PageTransition>} />
+                        <Route path="/projects/:id" element={<PageTransition><ProjectDetails /></PageTransition>} />
                         <Route path="/experience" element={<PageTransition><Experience /></PageTransition>} />
                         <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
                         <Route path="/cybersecurity" element={<PageTransition><Cybersecurity /></PageTransition>} />
