@@ -90,7 +90,7 @@ const projectsData = [
         challenges: "Designing a database schema that efficiently handles thousands of concurrent student records without slowing down complex grading queries.",
         lessons: "Learned advanced MySQL indexing techniques and how to structure deeply nested relational data for rapid API retrieval.",
         results: "Successfully digitized administrative workflows, providing real-time visibility into student performance and streamlining data entry.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD6bTUs9WZqtlY69vT4M-_9M5X-d4BixaTEyhtlqXJB17sylLVfdrW6Cr3iTTlfDnEbkZl0et3Wbqiq9cMVDRkyCyjG7DewWyfck6LcFRGjld_TWY40VXMmnwT1YnhSRgBh5fHbaISuUfZfnkxN5VGQl91bULWamDCUOx0Pgfa9jCSXWD94fvYnsVzNOJx4jdE6wtGf73u674xlB3bylzYA6cmVpShDyDZqZ_wgei6gl-fjT5xm4qM5Im9EvHFUyguO0LoeccAQ5rKb",
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
         url: "#",
         github: "#"
     },
@@ -106,7 +106,7 @@ const projectsData = [
         challenges: "Ensuring the website loaded instantly across varying network speeds, typical for prospective parents browsing on mobile devices.",
         lessons: "Mastered advanced asset optimization, lazy loading techniques, and efficient caching strategies.",
         results: "Established a dominant digital presence leading to significantly increased online enrollment inquiries.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDKoYCtkSEAKbPGHzx3XOgPT6O4CmfhTaDdpqYK6DMl1ovc5ESSkVHP__buxEAMJcN_vt6vayQFn4vVIaj_P5T0MrO254DMOEbJEQQLW9tvfP6lQKuoPUHuQctsMGtLkCcjjNtJAv3boI0IkQnzPNAYqxDYJ2KuRMQHYKl1xcdlNLkqHBvFgSdLnbT3pIQ7kQkRpzkvyqwiCCepWZiAysTLbhol_2KTIzsTt1PAPB4lXcpjd4Um_55Nf3FadCAENlZHu126iMEeRKc_",
+        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800",
         url: "#",
         github: "#"
     },
@@ -122,7 +122,7 @@ const projectsData = [
         challenges: "Sanitizing user input from the rich text editor to prevent XSS attacks while maintaining complex HTML formatting.",
         lessons: "Deepened understanding of web security, input sanitization, and parameterized database queries.",
         results: "Delivered a platform capable of handling concurrent readers with zero database bottlenecks.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAL3na5cFWxQ2_dC1cY2GQt7zl211peYslmvY7J52rwm2swhHb6H4yiWzVeN55SXqatF1eh0mQK2rakR68voQS4_DcQG1T4A2Qd3Yhw-czhnoqk6iVvcVBVoARWGHx5-Cq3I7l3N8mt_JBwzAxNZnQJkzA6dwHb6oQy0tGAlCNdlHI2XjG8yQaERMyXLCbNT1vZcZmYH8g4aY9ynVD984AlKgW5nQgdJhEJT_Y7q9sQ_hhmXCqZAwt4ROtreaMBMDQcJEXUuLN5SOEN",
+        image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
         url: "#",
         github: "#"
     },
@@ -138,7 +138,7 @@ const projectsData = [
         challenges: "Managing complex global state and ensuring that heavy canvas animations did not cause frame drops on low-end devices.",
         lessons: "Refined skills in React performance optimization, `requestAnimationFrame`, and memoization techniques.",
         results: "Created a unique digital footprint that instantly communicates technical proficiency and design aesthetics to visitors.",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDUGn3CrtpUzBq8gicITi5co4LLO_1JHsFYzO7aw4cIrlr7I-vQmrI4wXsqqooiLlYA2XOsstVQmf7S5OEFARx_BQhCu3KyvaW_F_m96OdtJJa1_-NUkXQhbkqAeGV79bfvk45Sp6k9689s3Lj4d-77cAj6vlebUGGHsi4xx_B5GklcEzeXkdnfWrpUNctELaSyqavQlP4kE4bAb5j2F5SncEH-qm6ZGYSJYatK2ow4TGsXRR0_KVi388f5INx2rZxEfDz0ET3pgsyG",
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
         url: "#",
         github: "#"
     }

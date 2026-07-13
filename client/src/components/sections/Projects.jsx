@@ -63,7 +63,7 @@ export default function Projects() {
                         <div className="relative aspect-video rounded-xl overflow-hidden glass-card tech-border border-white/10 mb-6">
                             <div 
                                 className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" 
-                                style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcgpVy_AbUhruW5UPnSxlChrW7Ulzyk8zU_fM6vtCPusJptjIZBBvMRBA8RWcO6yXciShAkIcSlTTCKUoYaeArNoiqjPDsZqpnZJ9iX4nGequuZNsQFPObaULCPrsNQ35rHOFM8wwU3q5WboivljlnFSUZ11syqv6mvsk_2ztxodFJr6LOZBKBtBXt2lZIW4fyjNbwA0McfX4xIHpmH5USXLHUlgqD0yPnwuuCHbqKM9BNxAETGHJTjJC_XGWUXD0b7m9PT5vqGe-R')" }}
+                                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800')" }}
                             ></div>
                             <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
                         </div>
@@ -83,7 +83,7 @@ export default function Projects() {
                         <div className="relative aspect-video rounded-xl overflow-hidden glass-card tech-border border-white/10 mb-6">
                             <div 
                                 className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700" 
-                                style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3SujdWKSk6fqJkzklbgqKsOsnPyr13u9cG4CZFyovdTcam6hJabGQqc6rDynhWLg58jvN1BM2SmIAmvNGk-la0z9fp9sTkX4vdhjoUvrtVUMs6DIsQETSpPCjmOItXSmIqjUiwX4Rb6tIZaYqBWCcc_BYtdbzgl9L8ibQL3KetKF0Yo2BJoPGJme9K_MfEimkfIvZ3laTCgxnIGsBLn1XZ4KxYEdbx8o3Wi_bCJ_7E8XcYyd0OpTvXtoKVKAIjbeOo9Ms4ZVLjawe')" }}
+                                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800')" }}
                             ></div>
                             <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
                         </div>
