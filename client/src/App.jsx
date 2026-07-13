@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import Navbar from './components/layout/Navbar';
+import OSDock from './components/layout/OSDock';
 import Footer from './components/layout/Footer';
 import Spotlight from './components/animations/Spotlight';
 import CyberOverlay from './components/animations/CyberOverlay';
@@ -102,6 +103,7 @@ function App() {
                 </AnimatePresence>
             </div>
             <Footer />
+            <OSDock />
         </div>
     );
 }

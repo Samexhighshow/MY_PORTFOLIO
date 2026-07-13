@@ -15,7 +15,7 @@ export default function SystemStatus() {
     };
 
     return (
-        <div className="fixed bottom-4 right-4 z-50 flex items-center gap-4 bg-background/80 backdrop-blur-md border border-white/10 p-2 rounded-lg shadow-lg pointer-events-none hidden md:flex">
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-4 bg-surface/80 backdrop-blur-xl border border-white/20 px-5 py-2 rounded-full shadow-2xl pointer-events-none hidden lg:flex">
             
             {/* Version */}
             <div className="flex items-center gap-2 border-r border-white/10 pr-4">
