@@ -42,7 +42,7 @@ export default function ProjectModal({ project, onClose }) {
                         <span className="material-symbols-outlined">close</span>
                     </button>
 
-                    <div className="overflow-y-auto no-scrollbar flex-grow">
+                    <div className="overflow-y-auto no-scrollbar flex-grow" data-lenis-prevent="true">
                         {/* Cover Image Header */}
                         <div className="relative h-[40vh] md:h-[50vh] w-full shrink-0">
                             <div 
