@@ -124,13 +124,13 @@ export default function ProjectsShowcase() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(67,91,159,0.15)_0%,transparent_70%)] pointer-events-none -z-10"></div>
                 
                 {/* Hero Section */}
-                <section className="relative mb-stack-xl">
+                <section className="relative mb-24">
                     <motion.div 
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="max-w-container-max mx-auto px-margin-mobile md:px-stack-lg mb-stack-xl text-center">
+                        <div className="max-w-container-max mx-auto px-margin-mobile md:px-stack-lg mb-16 text-center">
                             <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 tracking-tighter">
                                 <DecryptText text="Architectural" className="text-on-surface" /> <span className="text-primary"><DecryptText text="Archive" /></span>
                             </h1>

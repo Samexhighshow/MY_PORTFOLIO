@@ -40,8 +40,8 @@ export default function Experience() {
             </div>
 
             {/* Header Section */}
-            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-stack-2xl mt-12 relative z-10">
-                <div className="text-center mb-stack-xl max-w-3xl mx-auto reveal active">
+            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-24 mt-12 relative z-10">
+                <div className="text-center mb-16 max-w-3xl mx-auto reveal active">
                     <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 tracking-tighter">
                         <DecryptText text="My Professional" className="text-on-surface" /> <span className="text-primary"><DecryptText text="Story" /></span>
                     </h1>
@@ -52,7 +52,7 @@ export default function Experience() {
             </section>
 
             {/* Education Section */}
-            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-stack-2xl relative z-10">
+            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-24 relative z-10">
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 md:p-16 rounded-2xl relative overflow-hidden group hover:border-primary/30 transition-colors">
                     <div className="absolute -inset-[100%] bg-gradient-to-r from-transparent via-primary/5 to-transparent rotate-45 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-[2s]"></div>
                     <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -76,7 +76,7 @@ export default function Experience() {
             </section>
 
             {/* Learning Journey Timeline */}
-            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-stack-2xl pt-8 relative">
+            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-24 relative">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
                     <div className="md:col-span-4 sticky top-[120px] h-fit">
                         <h2 className="font-display-lg text-headline-md text-secondary mb-4">Learning <br/>Journey</h2>
@@ -107,7 +107,7 @@ export default function Experience() {
             </section>
 
             {/* Engineering Philosophy */}
-            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-stack-2xl pt-16 relative">
+            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-24 relative">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <h2 className="font-display-lg text-headline-md text-white mb-4">Engineering Philosophy</h2>
                     <p className="font-body-lg text-on-surface-variant">The core principles that guide my architecture and code.</p>
@@ -131,7 +131,7 @@ export default function Experience() {
             </section>
 
             {/* Technical Skills Grid */}
-            <section className="py-stack-2xl relative z-10 px-margin-mobile md:px-stack-lg max-w-container-max mx-auto border-t border-white/5 pt-20 mt-8">
+            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-24 relative z-10 border-t border-white/5 pt-16">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <h2 className="font-display-lg text-headline-md text-white mb-4">
                         <DecryptText text="Skill" /> <span className="text-tertiary-fixed"><DecryptText text="Classification" /></span>
@@ -195,7 +195,7 @@ export default function Experience() {
             </section>
 
             {/* Future Horizons Placeholders */}
-            <section className="py-stack-2xl relative z-10 px-margin-mobile md:px-stack-lg max-w-container-max mx-auto border-t border-white/5 pt-20 mt-8 mb-8">
+            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-24 relative z-10 border-t border-white/5 pt-16">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <h2 className="font-display-lg text-headline-md text-white mb-4">Future Horizons</h2>
                     <p className="font-body-lg text-on-surface-variant">Infrastructure prepared for upcoming milestones in research, community contribution, and recognition.</p>
@@ -226,7 +226,7 @@ export default function Experience() {
             </section>
 
             {/* CTA Section */}
-            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-stack-2xl mt-16">
+            <section className="px-margin-mobile md:px-stack-lg max-w-container-max mx-auto mb-24">
                 <div className="relative border border-white/10 backdrop-blur-xl p-12 md:p-16 rounded-xl flex flex-col items-center text-center overflow-hidden">
                     <h2 className="font-display-lg text-headline-md mb-6 relative z-10">Ready to secure your digital infrastructure?</h2>
                     <div className="flex gap-4 relative z-10">

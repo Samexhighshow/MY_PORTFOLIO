@@ -39,7 +39,7 @@ export default function Services() {
     return (
         <main className="pt-32 pb-stack-xl max-w-container-max mx-auto px-margin-mobile md:px-stack-lg relative z-10">
             {/* Header Section */}
-            <section className="mb-stack-xl text-center max-w-3xl mx-auto">
+            <section className="mb-24 text-center max-w-3xl mx-auto">
                 <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 tracking-tighter">
                     <DecryptText text="Professional" className="text-on-surface" /> <span className="text-primary"><DecryptText text="Services" /></span>
                 </h1>
@@ -49,7 +49,7 @@ export default function Services() {
             </section>
 
             {/* Services Grid */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-stack-md mb-stack-2xl">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-stack-md mb-24">
                 {servicesData.map((service, index) => (
                     <motion.div 
                         key={index}
@@ -81,8 +81,8 @@ export default function Services() {
             </section>
 
             {/* Testimonials Section */}
-            <section className="mb-stack-2xl relative z-10">
-                <div className="text-center mb-stack-lg max-w-3xl mx-auto">
+            <section className="mb-24 relative z-10">
+                <div className="text-center mb-16 max-w-3xl mx-auto">
                     <h2 className="font-display-lg text-headline-md text-white mb-4">Client Testimonials</h2>
                     <p className="font-body-lg text-on-surface-variant">Feedback from collaborations and successful deployments.</p>
                 </div>
@@ -121,7 +121,7 @@ export default function Services() {
             </section>
 
             {/* CTA */}
-            <section className="text-center">
+            <section className="mb-24 text-center">
                 <div className="bg-gradient-to-r from-secondary-container/20 to-tertiary-fixed/20 border border-white/10 p-12 rounded-2xl relative overflow-hidden">
                     <h2 className="font-display-lg text-headline-md text-white mb-4 relative z-10">Have a unique project in mind?</h2>
                     <p className="font-body-md text-on-surface-variant mb-8 max-w-xl mx-auto relative z-10">

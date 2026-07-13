@@ -58,7 +58,7 @@ export default function Blog() {
     return (
         <main className="pt-32 pb-stack-xl max-w-container-max mx-auto px-margin-mobile md:px-stack-lg relative z-10">
             {/* Header Section */}
-            <section className="mb-stack-xl text-center max-w-3xl mx-auto">
+            <section className="mb-24 text-center max-w-3xl mx-auto">
                 <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 tracking-tighter">
                     <DecryptText text="Technical" className="text-on-surface" /> <span className="text-primary"><DecryptText text="Transmissions" /></span>
                 </h1>

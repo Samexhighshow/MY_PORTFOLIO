@@ -50,7 +50,7 @@ export default function Cybersecurity() {
     return (
         <main className="pt-32 pb-stack-xl max-w-container-max mx-auto px-margin-mobile md:px-stack-lg relative z-10">
             {/* Header Section */}
-            <section className="mb-stack-xl text-center max-w-3xl mx-auto">
+            <section className="mb-24 text-center max-w-3xl mx-auto">
                 <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 tracking-tighter">
                     <DecryptText text="Cyber Security" className="text-on-surface" /> <span className="text-primary"><DecryptText text="Command" /></span>
                 </h1>
@@ -60,8 +60,8 @@ export default function Cybersecurity() {
             </section>
 
             {/* Current Labs & Tooling */}
-            <section className="mb-stack-2xl">
-                <div className="flex items-center gap-4 mb-8 border-b border-white/5 pb-4">
+            <section className="mb-24">
+                <div className="flex items-center gap-4 mb-16 border-b border-white/5 pb-4">
                     <span className="material-symbols-outlined text-3xl text-secondary-fixed">science</span>
                     <h2 className="font-display-lg text-headline-md text-white">Active Labs & Tooling</h2>
                 </div>
@@ -86,8 +86,8 @@ export default function Cybersecurity() {
             </section>
 
             {/* Certifications Roadmap */}
-            <section className="mb-stack-2xl">
-                <div className="flex items-center gap-4 mb-8 border-b border-white/5 pb-4">
+            <section className="mb-24">
+                <div className="flex items-center gap-4 mb-16 border-b border-white/5 pb-4">
                     <span className="material-symbols-outlined text-3xl text-primary">verified</span>
                     <h2 className="font-display-lg text-headline-md text-white">Certification Roadmap</h2>
                 </div>
