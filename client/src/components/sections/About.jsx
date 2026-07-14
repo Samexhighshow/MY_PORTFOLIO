@@ -21,7 +21,7 @@ export default function About() {
     };
 
     return (
-        <section className="py-stack-xl relative px-margin-mobile md:px-stack-lg" ref={ref}>
+        <section className="pt-8 pb-stack-xl lg:pt-16 relative px-margin-mobile md:px-stack-lg" ref={ref}>
             <div className="max-w-container-max mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
                     <motion.div 
