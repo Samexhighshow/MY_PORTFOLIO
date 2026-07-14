@@ -58,12 +58,7 @@
     --glass-border: rgba(15, 23, 42, 0.1);
     --glass-border-hover: rgba(15, 23, 42, 0.25);
     --glass-shadow: 0 4px 24px -1px rgba(15, 23, 42, 0.05);
-    --glass-shadow-hover: 0 20px 40px -10px rgba(15, 23, 42, 0.12);
-    
     --spotlight-bg: rgba(29, 78, 216, 0.05);
-
-    --spacing-stack-xl: 120px;
-    --spacing-stack-lg: 64px;
 }
 
 :root.dark, :root {
@@ -143,6 +138,11 @@ body {
     background-color: var(--color-background);
     color: var(--color-on-background);
     overflow-x: hidden;
+}
+
+:root {
+    --spacing-stack-xl: 120px;
+    --spacing-stack-lg: 64px;
 }
 
 @media (max-width: 768px) {
